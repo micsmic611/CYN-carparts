@@ -1,0 +1,77 @@
+
+
+/* ตัวอย่าง: การปรับสไตล์ในไฟล์ index.css หรือ App.css */
+body {
+    background-color: #55679C; /* อัพเดตสีพื้นหลังทั้งหน้า */
+    margin: 0; /* ลบระยะขอบเริ่มต้น */
+    height: 100vh; /* ให้พื้นหลังครอบคลุมหน้าจอทั้งหมด */
+    display: flex; /* ใช้ flexbox เพื่อช่วยในการจัดตำแหน่ง */
+    justify-content: center; /* จัดกลางแนวนอน */
+    align-items: center; /* จัดกลางแนวตั้ง */
+}
+
+.login-container {
+    background-color: #FFD7C4; /* ตรวจสอบให้แน่ใจว่าสีนี้ตรงกับสีที่คุณต้องการใช้ */
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.CYN{
+
+
+
+}
+
+.login-logo img {
+    width: 50%; /* ปรับขนาดโลโก้ */
+    margin-bottom: 1rem;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 80%; /* ขนาดความกว้างของช่องกรอก */
+    padding: 0.8em; /* ระยะห่างภายในช่องกรอก */
+    margin-bottom: 0.5em; /* ระยะห่างระหว่างช่องกรอก */
+    border: 1px solid #ccc; /* สีขอบของช่องกรอก */
+    border-radius: 10px; /* ความโค้งขอบ */
+}
+
+button {
+    background-color: #7695FF; /* สีพื้นหลังของปุ่ม Login */
+    color: white; /* สีข้อความในปุ่ม */
+    padding: 0.8em;
+    margin: 0.5em 0;
+    width: 80%;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* การเปลี่ยนแปลงสีเมื่อ hover */
+}
+
+button:hover {
+    background-color: #5678D9; /* สีพื้นหลังของปุ่มเมื่อ hover (คุณสามารถเปลี่ยนเป็นสีที่คุณต้องการ) */
+}
+
+.login-footer a {
+    color: #555; /* สีของลิงก์ */
+    text-decoration: none; /* ไม่มีเส้นใต้ข้อความ */
+    font-size: 0.8em; /* ขนาดตัวอักษรของลิงก์ */
+}
+
+.login-footer a:hover {
+    text-decoration: underline; /* เส้นใต้ข้อความเมื่อ hover */
+}
+.login-footer a {
+    display: block; /* ทำให้แต่ละลิงก์อยู่บนบรรทัดของตัวเอง */
+    color: #555;
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-top: 0.5em; /* ระยะห่างระหว่างลิงก์ */
+}
+
+.login-footer a:hover {
+    text-decoration: underline;
+}
