@@ -1,0 +1,139 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Internet\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\User.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Entity\\User.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\User.cs",
+              "RelativeToolTip": "backend\\src\\Entity\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAYAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T19:24:34.12Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
+              "RelativeToolTip": "backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAAAcwG8AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T19:21:12.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\Program.cs",
+              "RelativeDocumentMoniker": "backend\\Program.cs",
+              "ToolTip": "D:\\Internet\\backend\\Program.cs",
+              "RelativeToolTip": "backend\\Program.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAAXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T19:17:12.114Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "UserDto.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\DTOs\\UserDto.cs",
+              "RelativeDocumentMoniker": "backend\\DTOs\\UserDto.cs",
+              "ToolTip": "D:\\Internet\\backend\\DTOs\\UserDto.cs",
+              "RelativeToolTip": "backend\\DTOs\\UserDto.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAUwBoAAAAfAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:56:04.727Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IUserservice.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Interface\\IUserservice.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Interface\\IUserservice.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Interface\\IUserservice.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Interface\\IUserservice.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:39:42.443Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserService.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Service\\UserService.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Service\\UserService.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Service\\UserService.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Service\\UserService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:37:57.624Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Usercontroller.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\Controller\\Usercontroller.cs",
+              "RelativeDocumentMoniker": "backend\\Controller\\Usercontroller.cs",
+              "ToolTip": "D:\\Internet\\backend\\Controller\\Usercontroller.cs",
+              "RelativeToolTip": "backend\\Controller\\Usercontroller.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAqwBkAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T18:32:07.135Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
