@@ -21,3 +21,13 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# ละเว้นไฟล์อื่น ๆ ที่เกี่ยวข้องกับการ build
+*.log
+*.user
+*.suo
+*.cache
+*.pdb
+*.exe
+*.dll
+#appsetting
+backend/appsettings.json
