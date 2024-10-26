@@ -1,0 +1,78 @@
+.payment-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f3f4f6;
+    border-radius: 10px;
+  }
+  
+  .payment-header {
+    text-align: center;
+    padding: 10px;
+    background-color: #f7c4c2;
+  }
+  
+  .payment-header h1 {
+    margin: 0;
+    color: #000;
+  }
+  
+  .payment-content {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin-top: 20px;
+  }
+  
+  .qr-code {
+    margin-bottom: 20px;
+  }
+  
+  .payment-amount {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .payment-date, .order-number, .customer-info, .shipping-info {
+    margin: 5px 0;
+    color: #333;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .cancel-button, .confirm-button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+  }
+  
+  .cancel-button {
+    background-color: red;
+  }
+  
+  .confirm-button {
+    background-color: blue;
+  }
+  
+  .upload-button-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .upload-button {
+    background-color: #ddd;
+    color: #000;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
