@@ -4,7 +4,7 @@ using System;
 //connect database && go to datacontext 
 namespace backend.src.Entities
 {
-    [Table("user")]
+    [Table("Users")]
     public class UserDbo
     {
         [Key]

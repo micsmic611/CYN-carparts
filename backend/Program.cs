@@ -1,7 +1,14 @@
+﻿using backend.Helpers;
+using backend.src.Core.Interface;
+using backend.src.Infrastructure.Interface;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
+using permissionAPI.src.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddControllers();
+//User
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -28,7 +35,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-
+app.MapControllers();
 
 app.Run();
 

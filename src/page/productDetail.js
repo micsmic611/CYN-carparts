@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from 'react';
-import './main.css';
+import React, { useEffect, useState, useContext } from 'react';
+import { useParams, useNavigate ,Link } from 'react-router-dom';
+import './productDetail.css';
 import NavBar from './navbar';
-import { Link } from 'react-router-dom';
+import { CartContext } from './CartContext';
 
-function Main() {
+
+function ProductDetail() {
+    const [showDialog, setShowDialog] = useState(false); // จัดการการแสดงผล dialog
+    const navigate = useNavigate();
+    const { addToCart } = useContext(CartContext); // ใช้ Context ของตะกร้าสินค้า
+    const [quantity, setQuantity] = useState(1); // เริ่มต้นที่จำนวน 1
     const [products, setProducts] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [selectedCategories, setSelectedCategories] = useState([]); // state สำหรับเก็บหมวดหมู่ที่เลือก
     const productsPerPage = 6;
-
+    const { id } = useParams(); // รับ id ของสินค้าที่ถูกส่งมาจาก URL
+    const [product, setProduct] = useState(null);
     useEffect(() => {
         // เรียกใช้ mock API เพื่อดึงข้อมูลสินค้า
         fetch('http://localhost:5000/products')
@@ -41,18 +48,6 @@ function Main() {
     // จำนวนหน้าทั้งหมด
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
-    const handleNextPage = () => {
-        if (currentPage < totalPages) {
-            setCurrentPage(currentPage + 1);
-        }
-    };
-
-    const handlePreviousPage = () => {
-        if (currentPage > 1) {
-            setCurrentPage(currentPage - 1);
-        }
-    };
-
     const handleSearch = () => {
         setCurrentPage(1); // รีเซ็ตไปที่หน้าแรกของผลลัพธ์
     };
@@ -65,8 +60,38 @@ function Main() {
         );
     };
 
-    return (
-        <div>
+
+  useEffect(() => {
+    // เรียกใช้ mock API เพื่อดึงข้อมูลสินค้าตาม id
+    fetch(`http://localhost:5000/products/${id}`)
+      .then(response => response.json())
+      .then(data => setProduct(data))
+      .catch(error => console.error('Error fetching product:', error));
+  }, [id]);
+  const handleIncrease = () => setQuantity(prev => prev + 1);
+  const handleDecrease = () => setQuantity(prev => Math.max(1, prev - 1));
+
+  const handleBuy = () => {
+    setShowDialog(true); // เปิด dialog เมื่อกดปุ่มซื้อ
+  };
+
+  const confirmBuy = () => {
+    const productToAdd = { ...product, quantity };
+    addToCart(productToAdd); // เพิ่มสินค้าในตะกร้า
+    setShowDialog(false); // ปิด dialog
+    navigate('/cart'); // นำไปยังหน้าตะกร้าสินค้า
+  };
+
+  const cancelBuy = () => {
+    setShowDialog(false); // ปิด dialog โดยไม่เพิ่มสินค้า
+  };
+
+  if (!product) {
+    return <div>Loading...</div>;
+  }
+
+  return (
+    <div>
             <NavBar />
             <div className="main-container">
                 {/* Sidebar */}
@@ -119,9 +144,9 @@ function Main() {
                         <button className="search-button" onClick={handleSearch}>
                             <img src="/search.png" alt="searrch" />
                         </button>
-                        <Link to="/history" className="list-button">
+                        <button className="list-button">
                             <img src="/list.png" alt="list" />
-                        </Link>
+                        </button>
                         <Link to="/cart" className="cart-button"> {/* ปรับให้เป็น Link ไปยังหน้าตะกร้า */}
                             <img src="/shopping-cart.png" alt="cart" />
                         </Link>
@@ -131,38 +156,52 @@ function Main() {
                             <i className="fa fa-home"></i>
                         </div>
                     </div>
-
-                    {/* Product grid */}
-                    <div className="product-grid">
-                        {currentProducts.map((product) => (
-                            <Link to={`/product/${product.id}`} key={product.id} className="product-card">
-                                <img src={product.img} alt={product.name} />
-                                <p>{product.name}</p>
-                                <p>{product.price}</p>
-                                <p>{product.description}</p>
-                            </Link>
-                        ))}
-                      
-                    </div>
-
-                    {/* Pagination */}
-                    {filteredProducts.length > 0 && (
-                        <div className="pagination">
-                            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                                หน้าก่อนหน้า
-                            </button>
-                            <span>
-                                หน้าที่ {currentPage} จาก {totalPages}
-                            </span>
-                            <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                                หน้าถัดไป
-                            </button>
-                        </div>
-                    )}
+    <div className="product-detail-container">
+      <div className="product-detail">
+        <img src={product.img} alt={product.name} />
+        <div className="product-info">
+          <h2>{product.name}</h2>
+          <p>{product.price}</p>
+          <div className="quantity-control">
+          <button onClick={handleDecrease}>-</button>
+            <span>{quantity}</span>
+            <button onClick={handleIncrease}>+</button>
+          </div>
+          <button onClick={handleBuy} className="buy-button">ซื้อ</button>
+          <div className="product-description">
+            <p>รายละเอียดสินค้า: {product.description}</p>
+          </div>
+          <div className="product-review">
+            <p>รีวิวสินค้า</p>
+            <textarea placeholder="แสดงความคิดเห็น..."></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+    
                 </div>
             </div>
+            {/* Dialog ยืนยัน */}
+      {showDialog && (
+        <div className="dialog-overlay">
+          <div className="dialog-box">
+            <p>คุณต้องการเพิ่มสินค้านี้ในตะกร้าหรือไม่?</p>
+            <div className="dialog-buttons">
+              <button onClick={confirmBuy} className="confirm-button">ตกลง</button>
+              <button onClick={cancelBuy} className="cancel-button">ยกเลิก</button>
+            </div>
+          </div>
         </div>
-    );
+      )}
+        </div>
+        
+  );
 }
 
-export default Main;
+export default ProductDetail;
+
+
+
+
+
+
