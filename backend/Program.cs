@@ -1,6 +1,8 @@
 ﻿using backend.Helpers;
 using backend.src.Core.Interface;
+using backend.src.Core.Service;
 using backend.src.Infrastructure.Interface;
+using backend.src.Infrastructure.Repository;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
 using permissionAPI.src.Infrastructure.Repositories;
@@ -9,6 +11,10 @@ builder.Services.AddControllers();
 //User
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
+//Product
+builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IProductRepository , ProductRepository>();
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

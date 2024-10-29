@@ -13,11 +13,11 @@ namespace backendAPI
 
         public DbSet<UserDbo> User { get; set; }
         public DbSet<Shipping> Shipping { get; set; }
-        public DbSet<Shipping> Products { get; set; }
+        public DbSet<Products> Product { get; set; }
         public DbSet<Payments> Payments { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Order_Items> Order_Items { get; set; }
-        public DbSet<Order_Items> Categories { get; set; }
+        public DbSet<Categories> Categories { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

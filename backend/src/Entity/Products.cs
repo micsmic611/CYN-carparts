@@ -5,31 +5,36 @@ using System;
 namespace backend.src.Entity
 {
     [Table("Products")]
-    public class Products
+    public class ProductDbo
     {
         [Key]
         [Required]
         [Column("product_id", TypeName = "int")]
-        public int productid { get; set; }
+        public int Productid { get; set; }
 
         [Column("seller_id", TypeName = "int")]
-        public int seller_id { get; set; }
+        public int Sellerid { get; set; }
 
         [Column("product_name ", TypeName = "varchar(255)")]
-        public string? productname { get; set; }
+        public string? Productname { get; set; }
+
         [Column("description ", TypeName = "varchar(255)")]
-        public string? description { get; set; }
+        public string? ProductDescription { get; set; }
 
         [Column("price ", TypeName = "DECIMAL(10,2)")]
-        public Decimal? price { get; set; }
+        public Decimal? Price { get; set; }
 
         [Column("stock ", TypeName = "int")]
-        public int? stock { get; set; }
+        public int? Stock { get; set; }
 
         [Column("category_id ", TypeName = "int")]
-        public int? categoryid { get; set; }
+        public int? Categoryid { get; set; }
  
         [Column("created_at", TypeName = "DATETIME")]
-        public DateTime? created_at { get; set; }
+        public DateTime? Created_at { get; set; }
+
+        [Column("product_img", TypeName = "varchar(250)")]
+        public string? Product_img { get; set; }
+
     }
 }

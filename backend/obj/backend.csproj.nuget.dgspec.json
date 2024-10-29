@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Internet\\backend\\backend.csproj": {}
+    "D:\\GIt\\internet\\backend\\backend.csproj": {}
   },
   "projects": {
-    "D:\\Internet\\backend\\backend.csproj": {
+    "D:\\GIt\\internet\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Internet\\backend\\backend.csproj",
+        "projectUniqueName": "D:\\GIt\\internet\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "D:\\Internet\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\tanapojluangviroj\\.nuget\\packages\\",
-        "outputPath": "D:\\Internet\\backend\\obj\\",
+        "projectPath": "D:\\GIt\\internet\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "D:\\GIt\\internet\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tanapojluangviroj\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -104,7 +104,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400-preview.0.24324.5/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,6 +7,7 @@ using BCrypt.Net;
 using backend.Helpers;
 using System.Net;
 using backend.src.Core.Interface;
+using backend.src.Core.Service;
 
 namespace backend.Controller
 {
@@ -16,6 +17,7 @@ namespace backend.Controller
     {
         private readonly IUserRepository _repository;
         private readonly IUserService _UserService;
+        private readonly ILogger<UserService> _logger;
 
         public UserController(IUserRepository repository, IUserService UserService)
         {
@@ -100,5 +102,27 @@ namespace backend.Controller
 
             return Ok("Password reset successfully.");
         }
+
+        [HttpGet("user/{userID}")]
+        public async Task<ActionResult<UserDbo>> GetUserByUserID(int userID)
+        {
+            try
+            {
+                var user = await _UserService.GetUserByUserID(userID);
+
+                if (user == null)
+                {
+                    return NotFound($"User with ID {userID} not found.");
+                }
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving user for userID {UserID}", userID);
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+
     }
 }

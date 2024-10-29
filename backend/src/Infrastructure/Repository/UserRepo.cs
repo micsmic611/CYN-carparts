@@ -108,6 +108,12 @@ namespace permissionAPI.src.Infrastructure.Repositories
             }
         }
 
+        public async Task<UserDbo> GetUserByUserID(int UserID)
+        {
+            return await _dbContext.User.FirstOrDefaultAsync(u => u.UserID == UserID);
+        }
+
+
        
     }
 }
