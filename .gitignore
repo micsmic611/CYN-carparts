@@ -29,5 +29,11 @@ yarn-error.log*
 *.pdb
 *.exe
 *.dll
+# ละเว้นโฟลเดอร์ build
+build/
+*.csproj.user
+# ละเว้นโฟลเดอร์ bin และ obj
+bin/
+obj/
 #appsetting
 backend/appsettings.json

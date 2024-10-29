@@ -22,7 +22,7 @@ namespace backend.src.Entity
         public string? ProductDescription { get; set; }
 
         [Column("price ", TypeName = "DECIMAL(10,2)")]
-        public Decimal? Price { get; set; }
+        public Decimal Price { get; set; }
 
         [Column("stock ", TypeName = "int")]
         public int? Stock { get; set; }

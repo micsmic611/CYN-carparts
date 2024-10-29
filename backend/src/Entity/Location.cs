@@ -18,4 +18,4 @@ namespace backend.src.Entity
         public string? Address { get; set; }
     }
 }
-}
+

@@ -10,31 +10,31 @@ namespace backend.src.Infrastructure.Repository
     public class ProductRepository : IProductRepository
     {
         private readonly DataContext _dbContext;
-        private readonly ILogger<Products> _logger;
+        private readonly ILogger<ProductDbo> _logger;
 
-        public ProductRepository(DataContext dbContext, ILogger<Products> logger)
+        public ProductRepository(DataContext dbContext, ILogger<ProductDbo> logger)
         {
             _dbContext = dbContext;
             _logger = logger;
         }
 
-        public async Task<List<Products>> GetProductByCategoriesIDAsync(int categoryId)
+        public async Task<List<ProductDbo>> GetProductByCategoriesIDAsync(int categoryId)
         {
             // ดึงข้อมูลที่มี categoryId ตรงกัน
-            return await _dbContext.Product
+            return await _dbContext.Products
                 .Where(p => p.Categoryid == categoryId) // กรองตาม categoryId
                 .ToListAsync();
         }
 
 
-        public async Task<Products> GetAllProductByrPoductNameAsync(string ProductName)
+        public async Task<ProductDbo> GetAllProductByrPoductNameAsync(string ProductName)
         {
-            return await _dbContext.Product.FirstOrDefaultAsync(u => u.Productname == ProductName);
+            return await _dbContext.Products.FirstOrDefaultAsync(u => u.Productname == ProductName);
         }
 
         public async Task<List<ProductWithCategoryDto>> GetAllProductsWithCategory()
         {
-            return await _dbContext.Product
+            return await _dbContext.Products
                 .Join(
                     _dbContext.Categories,
                     product => product.Categoryid,

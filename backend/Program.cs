@@ -14,7 +14,15 @@ builder.Services.AddScoped<IUserService, UserService>();
 //Product
 builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<IProductRepository , ProductRepository>();
-
+//
+builder.Services.AddScoped<ICartRepo, CartRepo>();
+builder.Services.AddScoped<ICartService, CartService>();
+//
+builder.Services.AddScoped<ILocationRepo, LocationRepo>();
+builder.Services.AddScoped<ILocationService, LocationService>();
+//
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

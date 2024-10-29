@@ -29,7 +29,8 @@ namespace backend.src.Entity
         public string? Status { get; set; }
 
         [Column("shipping_id", TypeName = "int")]
-        public int? Status_code { get; set; }
+        public int? shipping_id { get; set; }
 
+        public virtual ICollection<CartPaymentDbo> CartPayments { get; set; }
     }
 }
