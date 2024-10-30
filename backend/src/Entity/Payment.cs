@@ -16,8 +16,8 @@ namespace backend.src.Entity
         [Column("user_id", TypeName = "int")]
         public int? User_id { get; set; }
 
-        [Column("cart_id", TypeName = "int")]
-        public int? Cart_id { get; set; }
+        //[Column("cart_id", TypeName = "int")]
+        //public int? Cart_id { get; set; }
 
         [Column("total_price", TypeName = "DECIMAL(10,2)")]
         public decimal Total_price { get; set; }
@@ -30,6 +30,8 @@ namespace backend.src.Entity
 
         [Column("shipping_id", TypeName = "int")]
         public int? shipping_id { get; set; }
+        [Column("created_at", TypeName = "DATETIME")]
+        public DateTime? Created_at { get; set; } = DateTime.Now;
 
         public virtual ICollection<CartPaymentDbo> CartPayments { get; set; }
     }

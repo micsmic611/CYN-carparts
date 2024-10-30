@@ -12,8 +12,8 @@ using backendAPI;
 namespace backend.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241029212638_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20241030135223_AddPaymentBuyIdToCartPayment")]
+    partial class AddPaymentBuyIdToCartPayment
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,6 +24,47 @@ namespace backend.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("CartPaymentDbo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasColumnName("Id");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BuyId")
+                        .HasColumnType("int")
+                        .HasColumnName("buy_id");
+
+                    b.Property<int>("CartId")
+                        .HasColumnType("int")
+                        .HasColumnName("cart_id");
+
+                    b.Property<int>("PaymentBuyId")
+                        .HasColumnType("int")
+                        .HasColumnName("PaymentBuy_id");
+
+                    b.Property<int>("PaymentBuy_id")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int")
+                        .HasColumnName("ProductId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PaymentBuy_id");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("CartPayments", t =>
+                        {
+                            t.Property("PaymentBuy_id")
+                                .HasColumnName("PaymentBuy_id1");
+                        });
+                });
 
             modelBuilder.Entity("backend.src.Entities.UserDbo", b =>
                 {
@@ -101,31 +142,6 @@ namespace backend.Migrations
                     b.ToTable("cart");
                 });
 
-            modelBuilder.Entity("backend.src.Entity.CartPaymentDbo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("BuyId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CartId")
-                        .HasColumnType("int")
-                        .HasColumnName("cart_id");
-
-                    b.Property<int>("PaymentBuy_id")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PaymentBuy_id");
-
-                    b.ToTable("CartPayment");
-                });
-
             modelBuilder.Entity("backend.src.Entity.CategorieDbo", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -175,9 +191,9 @@ namespace backend.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Buy_id"));
 
-                    b.Property<int?>("Cart_id")
-                        .HasColumnType("int")
-                        .HasColumnName("cart_id");
+                    b.Property<DateTime?>("Created_at")
+                        .HasColumnType("DATETIME")
+                        .HasColumnName("created_at");
 
                     b.Property<int?>("Location_id")
                         .HasColumnType("int")
@@ -236,10 +252,6 @@ namespace backend.Migrations
                     b.Property<string>("Productname")
                         .HasColumnType("varchar(255)")
                         .HasColumnName("product_name ");
-
-                    b.Property<int>("Sellerid")
-                        .HasColumnType("int")
-                        .HasColumnName("seller_id");
 
                     b.Property<int?>("Stock")
                         .HasColumnType("int")
@@ -316,7 +328,7 @@ namespace backend.Migrations
                     b.ToTable("Shipping");
                 });
 
-            modelBuilder.Entity("backend.src.Entity.CartPaymentDbo", b =>
+            modelBuilder.Entity("CartPaymentDbo", b =>
                 {
                     b.HasOne("backend.src.Entity.PaymentDbo", "Payment")
                         .WithMany("CartPayments")
@@ -324,7 +336,15 @@ namespace backend.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("backend.src.Entity.ProductDbo", "Product")
+                        .WithMany()
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Payment");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("backend.src.Entity.PaymentDbo", b =>

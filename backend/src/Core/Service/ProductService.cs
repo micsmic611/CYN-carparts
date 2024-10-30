@@ -2,6 +2,7 @@
 using backend.src.Core.Interface;
 using backend.src.Entity;
 using backend.src.Infrastructure.Interface;
+using backend.src.Infrastructure.Repository;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
 using Product.DTOs;
@@ -54,7 +55,7 @@ namespace backend.src.Core.Service
                                               .Select(p => new ProductDbo
                                               {
                                                   Productid = p.Productid,
-                                                  Sellerid = p.Sellerid,
+                                                  //Sellerid = p.Sellerid,
                                                   Productname = p.Productname,
                                                   ProductDescription = p.ProductDescription,
                                                   Price = p.Price,
@@ -90,6 +91,62 @@ namespace backend.src.Core.Service
                 throw new ApplicationException($"An error occurred while retrieving the product data: {ex.Message}", ex);
             }
         }
+        public async Task<ProductDtos> AddProductAsync(ProductDtos productDtos, string imagePath)
+        {
+            // สร้าง Dbo จาก Dto ที่ส่งเข้ามา
+            var product = new ProductDbo
+            {
+                Productname = productDtos.ProductName,
+                ProductDescription = productDtos.ProductDescription,
+                Price = productDtos.Price,
+                Stock = productDtos.Stock,
+                Categoryid = productDtos.CategoryId,
+                Product_img = imagePath, // บันทึก path ของรูป
+                Created_at = DateTime.Now
+            };
 
+            // บันทึกสินค้าในฐานข้อมูล
+            await _ProductRepository.AddProductAsync(product);
+
+            return productDtos;
+        }
+        public async Task<ProductDbo> GetProductAsync(int productId)
+        {
+            return await _ProductRepository.GetProductByIdAsync(productId);
+        }
+
+        public async Task UpdateProductAsync(ProductDbo product)
+        {
+            await _ProductRepository.UpdateProductAsync(product);
+        }
+        public async Task DeleteProductAsync(int productId)
+        {
+            await _ProductRepository.DeleteProductAsync(productId);
+        }
+        public async Task<LocationDbo> GetAllLocationByUseridAsync(int User_id)
+        {
+            return await _dataContext.Location
+                .Where(u => u.User_id == User_id)
+                .Select(u => new LocationDbo
+                {
+                    Location_id = u.Location_id,
+                    User_id = u.User_id,
+                    Address = u.Address,
+
+                })
+                .FirstOrDefaultAsync();
+        }
+
+        public async Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id)
+        {
+            return await _dataContext.Shipping
+                .Where(s => s.Shipping_id == Shipping_id)
+                .Select(s => new ShippingDbo
+                {
+                    Shipping_id = s.Shipping_id,
+                    Shipping_name = s.Shipping_name,
+                })
+                .FirstOrDefaultAsync();
+        }
     }
 }

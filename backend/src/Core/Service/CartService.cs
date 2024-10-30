@@ -31,5 +31,13 @@ namespace backend.src.Core.Service
             // บันทึกลงฐานข้อมูล
             await _cartRepository.AddCartAsync(cart);
         }
+        public async Task<List<CartItemDto>> GetCartItemsAsync(int userId)
+        {
+            return await _cartRepository.GetPendingCartItemsByUserIdAsync(userId);
+        }
+        public async Task<bool> RemoveCartItemAsync(int cartId)
+        {
+            return await _cartRepository.RemoveCartItemAsync(cartId);
+        }
     }
 }

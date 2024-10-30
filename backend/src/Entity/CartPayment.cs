@@ -1,20 +1,29 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using backend.src.Entity;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace backend.src.Entity
+public class CartPaymentDbo
 {
-    [Table("CartPayment")]
-    public class CartPaymentDbo
-    {
-        [Key]
-        public int Id { get; set; } // Primary key สำหรับ CartPayment
+    [Key]
+    [Column("Id", TypeName = "int")]
+    public int Id { get; set; }
 
-        [ForeignKey("PaymentDbo")]
-        public int BuyId { get; set; } // Foreign key ไปยัง Payment
+    [ForeignKey("PaymentDbo")]
+    [Column("buy_id", TypeName = "int")] // Foreign key ไปยัง Payment
+    public int BuyId { get; set; }
 
-        [Column("cart_id", TypeName = "int")]
-        public int CartId { get; set; } // เก็บ cart_id
+    [ForeignKey("CartDbo")]
+    [Column("cart_id", TypeName = "int")]
+    public int CartId { get; set; }
 
-        public virtual PaymentDbo Payment { get; set; } // Navigation property
-    }
+    [ForeignKey("ProductDbo")]
+    [Column("ProductId", TypeName = "int")]
+    public int ProductId { get; set; }
+
+    // เพิ่มคุณสมบัตินี้
+    [Column("PaymentBuy_id", TypeName = "int")] // ชื่อใหม่ของฟิลด์
+    public int PaymentBuyId { get; set; } // Foreign key ไปยัง Payment
+
+    public virtual PaymentDbo Payment { get; set; }
+    public virtual ProductDbo Product { get; set; }
 }

@@ -1,4 +1,5 @@
-﻿using backend.src.Entity;
+﻿using backend.DTOs;
+using backend.src.Entity;
 
 namespace backend.src.Infrastructure.Interface
 {
@@ -10,5 +11,6 @@ namespace backend.src.Infrastructure.Interface
         Task<decimal> GetTotalPriceAsync(int[] cartIds);
         Task<PaymentDbo> UpdatePaymentStatusAsync(int buyId);
         Task AddSendRecordAsync(int buyId, int userId);
+        Task<List<PaymentHistoryDto>> GetPaymentHistoryByUserIdAsync(int userId);
     }
 }

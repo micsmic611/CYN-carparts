@@ -1,3 +1,4 @@
+using backend.DTOs;
 using backend.src.Entities;
 using backend.src.Entities;
 
@@ -14,6 +15,9 @@ namespace backend.src.Infrastructure.Interface
         Task<UserDbo> UpdateUserAsync(UserDbo user);
 
         Task<UserDbo> GetUserByUserID(int userID);
+        Task<List<UserDbo>> GetByroleId();
+        Task<string> GetUsernameById(int? userId);
+        Task<UserDbo> UpdateUser1Async(UserDbo user);
 
 
     }

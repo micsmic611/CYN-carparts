@@ -8,6 +8,8 @@ using backend.Helpers;
 using System.Net;
 using backend.src.Core.Interface;
 using backend.src.Core.Service;
+using Product.DTOs;
+using Microsoft.Extensions.Logging;
 
 namespace backend.Controller
 {
@@ -17,12 +19,13 @@ namespace backend.Controller
     {
         private readonly IUserRepository _repository;
         private readonly IUserService _UserService;
-        private readonly ILogger<UserService> _logger;
+        private readonly ILogger<UserController> _logger; // ใช้ ILogger<UserController>
 
-        public UserController(IUserRepository repository, IUserService UserService)
+        public UserController(IUserRepository repository, IUserService userService, ILogger<UserController> logger)
         {
-            _repository = repository;
-            _UserService = UserService;
+            _repository = repository ?? throw new ArgumentNullException(nameof(repository));
+            _UserService = userService ?? throw new ArgumentNullException(nameof(userService));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));  // ตรวจสอบว่า logger ไม่เป็น null
         }
 
         [HttpPost("register")]
@@ -114,7 +117,6 @@ namespace backend.Controller
                 {
                     return NotFound($"User with ID {userID} not found.");
                 }
-
                 return Ok(user);
             }
             catch (Exception ex)
@@ -123,6 +125,40 @@ namespace backend.Controller
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+        [HttpGet("Userbyrole")]
+        public async Task<ActionResult<List<ProductDto>>> GetProductByCategoriesIDAsync()
+        {
+            try
+            {
+                var user = await _UserService.Getalluserbyrole();
 
+                if (user == null || !user.Any())
+                {
+                    return NotFound($"No user found for role ID = 1 ");
+                }
+
+                return Ok(user);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error retrieving user for role ID 1");
+                return StatusCode(500, $"Internal server error: {ex.Message}");
+            }
+        }
+        [HttpPut("UpdateUser/{UserId}")]
+        public async Task<IActionResult> UpdateUserAsync(int UserId, [FromBody] Updateuser updateRequest)
+        {
+            try
+            {
+                updateRequest.UserID = UserId;
+                var updatedUser = await _UserService.UpdateUserAsync(updateRequest);
+                return Ok(new { message = "User updated successfully", user = updatedUser });
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Failed to update user with ID: {UserId}", UserId);
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
     }
 }

@@ -28,5 +28,27 @@ namespace backend.Controller
                 return BadRequest(new { error = ex.Message });
             }
         }
+        [HttpGet("{userId}")]
+        public async Task<IActionResult> GetCartItems(int userId)
+        {
+            var cartItems = await _cartService.GetCartItemsAsync(userId);
+            if (cartItems == null || !cartItems.Any())
+            {
+                return NotFound("No items found in the cart.");
+            }
+
+            return Ok(cartItems);
+        }
+        [HttpDelete("{cartId}")]
+        public async Task<IActionResult> RemoveCartItem(int cartId)
+        {
+            var result = await _cartService.RemoveCartItemAsync(cartId);
+            if (result)
+            {
+                return NoContent(); // คืนค่า 204 No Content หากลบสำเร็จ
+            }
+            return NotFound("Cart item not found."); // คืนค่า 404 หากไม่พบสินค้าที่ต้องการลบ
+        }
+
     }
 }
