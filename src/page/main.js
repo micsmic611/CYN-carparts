@@ -8,22 +8,25 @@ function Main() {
     const [currentPage, setCurrentPage] = useState(1);
     const [searchTerm, setSearchTerm] = useState('');
     const [searchResults, setSearchResults] = useState([]);
-    const [selectedCategories, setSelectedCategories] = useState([]);
+    const [selectedCategories, setSelectedCategories] = useState([]); // state สำหรับเก็บหมวดหมู่ที่เลือก
     const productsPerPage = 6;
 
     useEffect(() => {
+        // เรียกใช้ mock API เพื่อดึงข้อมูลสินค้า
         fetch('http://localhost:5000/products')
             .then(response => response.json())
             .then(data => {
                 setProducts(data);
-                setSearchResults(data);
+                setSearchResults(data); // เริ่มต้นแสดงสินค้าทั้งหมด
             })
             .catch(error => console.error('Error fetching products:', error));
     }, []);
 
+    // คำนวณหน้าสินค้า
     const indexOfLastProduct = currentPage * productsPerPage;
     const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
 
+    // ฟังก์ชันกรองสินค้า
     const filteredProducts = searchResults.filter(product => {
         // ตรวจสอบให้แน่ใจว่า product.name และ product.description มีค่า
         const productName = product.name ? product.name.toLowerCase() : '';
@@ -38,21 +41,14 @@ function Main() {
             productDescription.includes(category)
         );
     
-        const productName = product.name || '';  // ป้องกัน undefined
-        const matchesSearchTerm = productName.toLowerCase().includes(searchTerm.toLowerCase());
-
-        const matchesCategory =
-            selectedCategories.length === 0 ||
-            selectedCategories.some(category => 
-                product.description?.includes(category)  // Optional chaining
-            );
-
         return matchesSearchTerm && matchesCategory;
     });
     
 
     // สินค้าที่แสดงในหน้าปัจจุบัน
     const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
+
+    // จำนวนหน้าทั้งหมด
     const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
 
     const handleNextPage = () => {
@@ -68,14 +64,14 @@ function Main() {
     };
 
     const handleSearch = () => {
-        setCurrentPage(1);
+        setCurrentPage(1); // รีเซ็ตไปที่หน้าแรกของผลลัพธ์
     };
 
     const handleCategoryChange = (category) => {
         setSelectedCategories(prevCategories =>
             prevCategories.includes(category)
-                ? prevCategories.filter(c => c !== category)
-                : [...prevCategories, category]
+                ? prevCategories.filter(c => c !== category) // ถ้าหมวดหมู่ถูกเลือกแล้ว ให้เอาออก
+                : [...prevCategories, category] // ถ้ายังไม่ถูกเลือก ให้เพิ่มเข้าไป
         );
     };
 
@@ -83,12 +79,14 @@ function Main() {
         <div>
             <NavBar />
             <div className="main-container">
+                {/* Sidebar */}
                 <aside className="sidebar">
                     <h3>ประเภท</h3>
                     <div className="category">
                         <input
                             type="checkbox"
                             id="frontBumper"
+                            name="frontBumper"
                             onChange={() => handleCategoryChange('กันชนหน้า')}
                         />
                         <label htmlFor="frontBumper">กันชนหน้า</label>
@@ -97,6 +95,7 @@ function Main() {
                         <input
                             type="checkbox"
                             id="backBumper"
+                            name="backBumper"
                             onChange={() => handleCategoryChange('กันชนหลัง')}
                         />
                         <label htmlFor="backBumper">กันชนหลัง</label>
@@ -105,13 +104,17 @@ function Main() {
                         <input
                             type="checkbox"
                             id="backLight"
+                            name="backLight"
                             onChange={() => handleCategoryChange('ไฟหน้าหลัง')}
                         />
                         <label htmlFor="backLight">ไฟหน้าหลัง</label>
                     </div>
+                    {/* เพิ่มหมวดหมู่อื่น ๆ ตามต้องการ */}
                 </aside>
 
+                {/* Main content */}
                 <div className="main-content">
+                    {/* Search bar */}
                     <div className="search-container">
                         <input
                             type="text"
@@ -119,19 +122,27 @@ function Main() {
                             className="search-bar"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
-                            onKeyPress={(e) => e.key === 'Enter' && handleSearch()}
+                            onKeyPress={(e) => {
+                                if (e.key === 'Enter') handleSearch();
+                            }}
                         />
                         <button className="search-button" onClick={handleSearch}>
-                            <img src="/search.png" alt="search" />
+                            <img src="/search.png" alt="searrch" />
                         </button>
                         <Link to="/history" className="list-button">
                             <img src="/list.png" alt="list" />
                         </Link>
-                        <Link to="/cart" className="cart-button">
+                        <Link to="/cart" className="cart-button"> {/* ปรับให้เป็น Link ไปยังหน้าตะกร้า */}
                             <img src="/shopping-cart.png" alt="cart" />
                         </Link>
+                        <div className="icon-container">
+                            <i className="fa fa-user"></i>
+
+                            <i className="fa fa-home"></i>
+                        </div>
                     </div>
 
+                    {/* Product grid */}
                     <div className="product-grid">
                         {currentProducts.map((product) => (
                             <Link to={`/product/${product.id}`} key={product.id} className="product-card">
@@ -141,8 +152,10 @@ function Main() {
                                 <p>{product.description}</p>
                             </Link>
                         ))}
+                      
                     </div>
 
+                    {/* Pagination */}
                     {filteredProducts.length > 0 && (
                         <div className="pagination">
                             <button onClick={handlePreviousPage} disabled={currentPage === 1}>
