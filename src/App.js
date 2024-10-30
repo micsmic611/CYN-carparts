@@ -6,6 +6,7 @@ import NavBar from './page/navbar';
 import ProductDetail from './page/productDetail'; // หน้ารายละเอียดสินค้า
 import { CartProvider } from './page/CartContext';
 import Cart from './page/cart';
+import EditProduct from './page/EditProduct';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/product/:id" element={<ProductDetail />} /> {/* หน้ารายละเอียดสินค้า */}
         <Route path="/navbar" element={<NavBar />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/EditProduct" element={<EditProduct />} />
       </Routes>
     </Router>
     </CartProvider>
