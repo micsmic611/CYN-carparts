@@ -6,6 +6,9 @@ import NavBar from './page/navbar';
 import History from './page/history';
 import Payment from './page/payment';
 import Success from './page/success';
+import CustomerList from './page/customer';
+import ProfileForm from './page/editprofile';
+import Manager from './page/manager';
 import ProductDetail from './page/productDetail'; // หน้ารายละเอียดสินค้า
 import { CartProvider } from './page/CartContext';
 import Cart from './page/cart';
@@ -19,7 +22,10 @@ function App() {
         <Route path="/main" element={<Main />} /> 
         <Route path="/history" element={<History />} /> 
         <Route path="/payment" element={<Payment />} /> 
-        <Route path="/success" element={<Success />} /> 
+        <Route path="/success" element={<Success />} />
+        <Route path="/customer" element={<CustomerList />} />
+        <Route path="/profile" element={<ProfileForm />} />
+        <Route path="/manage" element={<Manager />} />
         <Route path="/product/:id" element={<ProductDetail />} /> 
         <Route path="/navbar" element={<NavBar />} />
         <Route path="/cart" element={<Cart />} />

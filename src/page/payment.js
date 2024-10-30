@@ -22,6 +22,7 @@ function Payment() {
   });
 
     return (
+      <div className="payment-page">
       <div className="payment-container">
       <header className="payment-header">
         <h1>CYN Carpart</h1>
@@ -50,6 +51,7 @@ function Payment() {
 
       <div className="upload-button-container">
         <button className="upload-button">อัปโหลดรูป</button>
+        </div>
       </div>
     </div>
       );
