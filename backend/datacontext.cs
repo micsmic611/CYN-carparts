@@ -12,13 +12,16 @@ namespace backendAPI
         // Add configuration for other entities here
 
         public DbSet<UserDbo> User { get; set; }
-        public DbSet<Shipping> Shipping { get; set; }
-        public DbSet<Shipping> Products { get; set; }
-        public DbSet<Payments> Payments { get; set; }
-        public DbSet<Orders> Orders { get; set; }
-        public DbSet<Order_Items> Order_Items { get; set; }
-        public DbSet<Order_Items> Categories { get; set; }
-
+        public DbSet<ShippingDbo> Shipping { get; set; }
+        public DbSet<ProductDbo> Products { get; set; }
+        public DbSet<PaymentDbo> Payments { get; set; }
+        public DbSet<CategorieDbo> Categories { get; set; }
+        public DbSet<LocationDbo> Location { get; set; }
+        public DbSet<RoleDbo> Role { get; set; }
+        public DbSet<SendDbo> Send { get; set; }
+        public DbSet<CartDbo> Cart { get; set; }
+        public DbSet<CartPaymentDbo> CartPayments { get; set; }
+        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

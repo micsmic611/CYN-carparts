@@ -3,32 +3,72 @@
   "WorkspaceRootPath": "D:\\Internet\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\controller\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\controller\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\controller\\paymentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\service\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\interface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\interface\\ipaymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\service\\paymentservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\interface\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\dtos\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\dtos\\paymentdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\repository\\paymentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\repository\\paymentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\interface\\ipaymentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\interface\\ipaymentrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\dtos\\userdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\send.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\cartpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\cartpayment.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\shipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\shipping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\interface\\ilocationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\interface\\ilocationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\interface\\ilocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\interface\\ilocationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\controller\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\controller\\locationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\infrastructure\\repository\\locationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\infrastructure\\repository\\locationrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\core\\service\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\core\\service\\locationservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\dtos\\locationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\dtos\\locationdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|d:\\internet\\backend\\src\\entity\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{331CDDD2-D952-4B07-935B-E6AF500BA7CC}|backend\\backend.csproj|solutionrelative:backend\\src\\entity\\cart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,97 +78,227 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\User.cs",
-              "RelativeDocumentMoniker": "backend\\src\\Entity\\User.cs",
-              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\User.cs",
-              "RelativeToolTip": "backend\\src\\Entity\\User.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAYAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:24:34.12Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "UserRepo.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
-              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
-              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
-              "RelativeToolTip": "backend\\src\\Infrastructure\\Repository\\UserRepo.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAcwG8AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:21:12.32Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\Program.cs",
-              "RelativeDocumentMoniker": "backend\\Program.cs",
-              "ToolTip": "D:\\Internet\\backend\\Program.cs",
-              "RelativeToolTip": "backend\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAAXAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T19:17:12.114Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "UserDto.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\DTOs\\UserDto.cs",
-              "RelativeDocumentMoniker": "backend\\DTOs\\UserDto.cs",
-              "ToolTip": "D:\\Internet\\backend\\DTOs\\UserDto.cs",
-              "RelativeToolTip": "backend\\DTOs\\UserDto.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAUwBoAAAAfAAAA",
+              "Title": "send.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\send.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Entity\\send.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\send.cs",
+              "RelativeToolTip": "backend\\src\\Entity\\send.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAuwAwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:56:04.727Z",
+              "WhenOpened": "2024-10-29T22:00:20.315Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "IUserservice.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Interface\\IUserservice.cs",
-              "RelativeDocumentMoniker": "backend\\src\\Core\\Interface\\IUserservice.cs",
-              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Interface\\IUserservice.cs",
-              "RelativeToolTip": "backend\\src\\Core\\Interface\\IUserservice.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAhAAAA",
+              "DocumentIndex": 7,
+              "Title": "datacontext.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\datacontext.cs",
+              "RelativeDocumentMoniker": "backend\\datacontext.cs",
+              "ToolTip": "D:\\Internet\\backend\\datacontext.cs",
+              "RelativeToolTip": "backend\\datacontext.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAIwAsAAAA0AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:39:42.443Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Service\\UserService.cs",
-              "RelativeDocumentMoniker": "backend\\src\\Core\\Service\\UserService.cs",
-              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Service\\UserService.cs",
-              "RelativeToolTip": "backend\\src\\Core\\Service\\UserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAWAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:37:57.624Z",
+              "WhenOpened": "2024-10-29T21:09:20.269Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Usercontroller.cs",
-              "DocumentMoniker": "D:\\Internet\\backend\\Controller\\Usercontroller.cs",
-              "RelativeDocumentMoniker": "backend\\Controller\\Usercontroller.cs",
-              "ToolTip": "D:\\Internet\\backend\\Controller\\Usercontroller.cs",
-              "RelativeToolTip": "backend\\Controller\\Usercontroller.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAqwBkAAAAeAAAA",
+              "Title": "PaymentController.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\Controller\\PaymentController.cs",
+              "RelativeDocumentMoniker": "backend\\Controller\\PaymentController.cs",
+              "ToolTip": "D:\\Internet\\backend\\Controller\\PaymentController.cs",
+              "RelativeToolTip": "backend\\Controller\\PaymentController.cs",
+              "ViewState": "AQIAADkAAAAAAAAAAAAuwEUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-23T18:32:07.135Z",
+              "WhenOpened": "2024-10-29T20:38:47.07Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IPaymentService.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Interface\\IPaymentService.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Interface\\IPaymentService.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Interface\\IPaymentService.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Interface\\IPaymentService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:38:02.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PaymentService.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Service\\PaymentService.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Service\\PaymentService.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Service\\PaymentService.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Service\\PaymentService.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAADUAAABKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:35:05.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IPaymentRepo.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Interface\\IPaymentRepo.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Interface\\IPaymentRepo.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Interface\\IPaymentRepo.cs",
+              "RelativeToolTip": "backend\\src\\Infrastructure\\Interface\\IPaymentRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAA3AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:32:22.635Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PaymentRepo.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\PaymentRepo.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Repository\\PaymentRepo.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\PaymentRepo.cs",
+              "RelativeToolTip": "backend\\src\\Infrastructure\\Repository\\PaymentRepo.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAgwC4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:31:41.858Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "PaymentDto.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\DTOs\\PaymentDto.cs",
+              "RelativeDocumentMoniker": "backend\\DTOs\\PaymentDto.cs",
+              "ToolTip": "D:\\Internet\\backend\\DTOs\\PaymentDto.cs",
+              "RelativeToolTip": "backend\\DTOs\\PaymentDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:40:07.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CartPayment.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\CartPayment.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Entity\\CartPayment.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\CartPayment.cs",
+              "RelativeToolTip": "backend\\src\\Entity\\CartPayment.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T21:24:24.103Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Shipping.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\Shipping.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Entity\\Shipping.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\Shipping.cs",
+              "RelativeToolTip": "backend\\src\\Entity\\Shipping.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T20:37:22.928Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "LocationDto.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\DTOs\\LocationDto.cs",
+              "RelativeDocumentMoniker": "backend\\DTOs\\LocationDto.cs",
+              "ToolTip": "D:\\Internet\\backend\\DTOs\\LocationDto.cs",
+              "RelativeToolTip": "backend\\DTOs\\LocationDto.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:22:29.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "LocationController.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\Controller\\LocationController.cs",
+              "RelativeDocumentMoniker": "backend\\Controller\\LocationController.cs",
+              "ToolTip": "D:\\Internet\\backend\\Controller\\LocationController.cs",
+              "RelativeToolTip": "backend\\Controller\\LocationController.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAADwvxQAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:21:43.093Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LocationService.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Service\\LocationService.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Service\\LocationService.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Service\\LocationService.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Service\\LocationService.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABYAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:20:20.434Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "ILocationService.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Core\\Interface\\ILocationService.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Core\\Interface\\ILocationService.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Core\\Interface\\ILocationService.cs",
+              "RelativeToolTip": "backend\\src\\Core\\Interface\\ILocationService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:19:39.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LocationRepo.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\LocationRepo.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Repository\\LocationRepo.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Repository\\LocationRepo.cs",
+              "RelativeToolTip": "backend\\src\\Infrastructure\\Repository\\LocationRepo.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAADwvxQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:18:44.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ILocationRepo.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Infrastructure\\Interface\\ILocationRepo.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Infrastructure\\Interface\\ILocationRepo.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Infrastructure\\Interface\\ILocationRepo.cs",
+              "RelativeToolTip": "backend\\src\\Infrastructure\\Interface\\ILocationRepo.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:18:06.673Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "Cart.cs",
+              "DocumentMoniker": "D:\\Internet\\backend\\src\\Entity\\Cart.cs",
+              "RelativeDocumentMoniker": "backend\\src\\Entity\\Cart.cs",
+              "ToolTip": "D:\\Internet\\backend\\src\\Entity\\Cart.cs",
+              "RelativeToolTip": "backend\\src\\Entity\\Cart.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T18:00:41.123Z",
               "EditorCaption": ""
             }
           ]
