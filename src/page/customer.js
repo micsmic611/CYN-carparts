@@ -1,5 +1,6 @@
 import React from "react";
 import './customer.css';
+import NavBar from "./navbar";
 
 const customers = [
     { username: "dotcomx", title: "Mr.Com", email: "DotcomX.C@gmail.com" },
@@ -20,11 +21,10 @@ const CustomerCard = ({ username, title, email }) => (
     </div>
   );
 
-const CustomerList = () => (
+const CustomerList = () => (<div>
+  <NavBar/>
     <div className="container">
-    <header className="header">
-      <h1>CYN Carport</h1>
-    </header>
+    
     <div className="list">
       {customers.map((customer, index) => (
         <CustomerCard
@@ -35,6 +35,7 @@ const CustomerList = () => (
         />
       ))}
     </div>
+  </div>
   </div>
 );
 

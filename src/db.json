@@ -62,20 +62,6 @@
       "price": 890,
       "img": "/assets/product-image3.jpg",
       "description": "ประเภท: ไฟหน้าหลัง"
-    },
-    {
-      "id": "9",
-      "name": "ไฟหน้าหลัง LH23432 TY",
-      "price": 890,
-      "img": "/assets/product-image3.jpg",
-      "description": "ประเภท: ไฟหน้าหลัง"
-    },
-    {
-      "id": "7009",
-      "products": [],
-      "total": 890,
-      "address": "",
-      "paymentMethod": "qr"
     }
   ]
 }

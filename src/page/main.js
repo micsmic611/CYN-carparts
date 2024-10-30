@@ -28,12 +28,22 @@ function Main() {
 
     // ฟังก์ชันกรองสินค้า
     const filteredProducts = searchResults.filter(product => {
-        const matchesSearchTerm = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+        // ตรวจสอบให้แน่ใจว่า product.name และ product.description มีค่า
+        const productName = product.name ? product.name.toLowerCase() : '';
+        const searchTermLower = searchTerm ? searchTerm.toLowerCase() : '';
+        const productDescription = product.description ? product.description : '';
+    
+        // ตรวจสอบเงื่อนไขการค้นหา
+        const matchesSearchTerm = productName.includes(searchTermLower);
+    
+        // ตรวจสอบเงื่อนไขหมวดหมู่
         const matchesCategory = selectedCategories.length === 0 || selectedCategories.some(category =>
-            product.description.includes(category) // ตรวจสอบว่ามีหมวดหมู่ที่เลือกใน description หรือไม่
+            productDescription.includes(category)
         );
+    
         return matchesSearchTerm && matchesCategory;
     });
+    
 
     // สินค้าที่แสดงในหน้าปัจจุบัน
     const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);

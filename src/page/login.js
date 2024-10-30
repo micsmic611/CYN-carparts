@@ -23,7 +23,7 @@ function Login() {
 
       if (data.length > 0) {
         alert('Login Successful');
-        navigate('/main');
+        navigate('/');
       } else {
         setErrorMessage('Invalid username or password');
       }
