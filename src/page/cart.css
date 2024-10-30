@@ -1,3 +1,8 @@
+.main-container {
+    display: flex;
+    height: 1200px;
+    background-color: #4a5c82;
+  }
 .cart-container {
     display: flex;
     flex-direction: column;
@@ -93,4 +98,33 @@
     cursor: pointer;
     font-size: 16px;
   }
+
+  /* เพิ่มรูปแบบสำหรับที่อยู่และวิธีการชำระเงิน */
+.address-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.address-section textarea {
+    width: 95%;
+    height: 80px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.payment-method-section {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8f8f8;
+    border-radius: 5px;
+}
+
+.payment-method-section label {
+    display: block;
+    margin-bottom: 10px;
+}
+
   
