@@ -80,5 +80,15 @@ namespace backend.Controller
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
+        [HttpGet("history/{userId}")]
+        public async Task<IActionResult> GetPaymentHistory(int userId)
+        {
+            var history = await _paymentService.GetPaymentHistoryAsync(userId);
+            if (history == null || !history.Any())
+            {
+                return NotFound("No payment history found.");
+            }
+            return Ok(history);
+        }
     }
 }

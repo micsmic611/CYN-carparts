@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace backend.Migrations
 {
     /// <inheritdoc />
-    public partial class CreateCartPaymentTable : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -61,11 +61,11 @@ namespace backend.Migrations
                     buy_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     user_id = table.Column<int>(type: "int", nullable: true),
-                    cart_id = table.Column<int>(type: "int", nullable: true),
                     total_price = table.Column<decimal>(type: "DECIMAL(10,2)", nullable: false),
                     location_id = table.Column<int>(type: "int", nullable: true),
                     status = table.Column<string>(type: "varchar(20)", nullable: true),
-                    shipping_id = table.Column<int>(type: "int", nullable: true)
+                    shipping_id = table.Column<int>(type: "int", nullable: true),
+                    created_at = table.Column<DateTime>(type: "DATETIME", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -78,7 +78,6 @@ namespace backend.Migrations
                 {
                     product_id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    seller_id = table.Column<int>(type: "int", nullable: false),
                     product_name = table.Column<string>(name: "product_name ", type: "varchar(255)", nullable: true),
                     description = table.Column<string>(name: "description ", type: "varchar(255)", nullable: true),
                     price = table.Column<decimal>(name: "price ", type: "DECIMAL(10,2)", nullable: false),
@@ -155,30 +154,43 @@ namespace backend.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "CartPayment",
+                name: "CartPayments",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BuyId = table.Column<int>(type: "int", nullable: false),
+                    buy_id = table.Column<int>(type: "int", nullable: false),
                     cart_id = table.Column<int>(type: "int", nullable: false),
-                    PaymentBuy_id = table.Column<int>(type: "int", nullable: false)
+                    PaymentBuy_id = table.Column<int>(type: "int", nullable: false),
+                    PaymentBuy_id1 = table.Column<int>(type: "int", nullable: false),
+                    Productid = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_CartPayment", x => x.Id);
+                    table.PrimaryKey("PK_CartPayments", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_CartPayment_Payment_PaymentBuy_id",
-                        column: x => x.PaymentBuy_id,
+                        name: "FK_CartPayments_Payment_PaymentBuy_id1",
+                        column: x => x.PaymentBuy_id1,
                         principalTable: "Payment",
                         principalColumn: "buy_id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_CartPayments_Products_Productid",
+                        column: x => x.Productid,
+                        principalTable: "Products",
+                        principalColumn: "product_id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_CartPayment_PaymentBuy_id",
-                table: "CartPayment",
-                column: "PaymentBuy_id");
+                name: "IX_CartPayments_PaymentBuy_id1",
+                table: "CartPayments",
+                column: "PaymentBuy_id1");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_CartPayments_Productid",
+                table: "CartPayments",
+                column: "Productid");
         }
 
         /// <inheritdoc />
@@ -188,16 +200,13 @@ namespace backend.Migrations
                 name: "cart");
 
             migrationBuilder.DropTable(
-                name: "CartPayment");
+                name: "CartPayments");
 
             migrationBuilder.DropTable(
                 name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Location");
-
-            migrationBuilder.DropTable(
-                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "Role");
@@ -213,6 +222,9 @@ namespace backend.Migrations
 
             migrationBuilder.DropTable(
                 name: "Payment");
+
+            migrationBuilder.DropTable(
+                name: "Products");
         }
     }
 }

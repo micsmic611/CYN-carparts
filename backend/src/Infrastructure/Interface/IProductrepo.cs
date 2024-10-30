@@ -8,5 +8,12 @@ namespace backend.src.Infrastructure.Interface
         Task<List<ProductDbo>> GetProductByCategoriesIDAsync(int categoryId);
         Task<ProductDbo> GetAllProductByrPoductNameAsync(string ProductName);
         Task<List<ProductWithCategoryDto>> GetAllProductsWithCategory();
+        Task<ProductDbo> AddProductAsync(ProductDbo product);
+        Task<ProductDbo> GetProductByIdAsync(int productId);
+        Task UpdateProductAsync(ProductDbo product);
+        Task DeleteProductAsync(int productId);
+        Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id);
+        Task<LocationDbo> GetAllLocationByUseridAsync(int User_id);
+
     }
 }

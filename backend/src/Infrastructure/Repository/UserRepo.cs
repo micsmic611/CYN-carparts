@@ -112,8 +112,40 @@ namespace permissionAPI.src.Infrastructure.Repositories
         {
             return await _dbContext.User.FirstOrDefaultAsync(u => u.UserID == UserID);
         }
+        public async Task<List<UserDbo>> GetByroleId()
+        {
+            return await _dbContext.User
+                .Where(u => u.RoleId == 1) // ???????????? RoleId ???????????
+                .ToListAsync();
+        }
 
+        public async Task<string> GetUsernameById(int? userId)
+        {
+            if (userId == null) return null;
 
-       
+            var user = await _dbContext.User
+                .Where(u => u.UserID == userId)
+                .Select(u => u.Username)
+                .FirstOrDefaultAsync();
+
+            return user;
+        }
+
+        public async Task<UserDbo> UpdateUser1Async(UserDbo user)
+        {
+            var existingUser = await _dbContext.User.FindAsync(user.UserID);
+            if (existingUser == null)
+                throw new Exception($"User with ID {user.UserID} not found");
+
+            existingUser.Username = user.Username;
+            existingUser.Firstname = user.Firstname;
+            existingUser.Lastname = user.Lastname;
+            existingUser.email = user.email;
+            existingUser.phone = user.phone;
+            existingUser.address = user.address;
+
+            await _dbContext.SaveChangesAsync();
+            return existingUser;
+        }
     }
 }

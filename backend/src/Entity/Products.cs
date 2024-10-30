@@ -12,8 +12,8 @@ namespace backend.src.Entity
         [Column("product_id", TypeName = "int")]
         public int Productid { get; set; }
 
-        [Column("seller_id", TypeName = "int")]
-        public int Sellerid { get; set; }
+        //[Column("seller_id", TypeName = "int")]
+        //public int Sellerid { get; set; }
 
         [Column("product_name ", TypeName = "varchar(255)")]
         public string? Productname { get; set; }

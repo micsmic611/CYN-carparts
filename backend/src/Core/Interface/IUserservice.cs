@@ -10,5 +10,7 @@ namespace backend.src.Core.Interface
         string Generate(int userID, int roleID);
         JwtSecurityToken Verify(string jwt);
         Task<UserDbo> GetUserByUserID(int userID);
+        Task<List<UserDbo>> Getalluserbyrole();
+        Task<Updateuser> UpdateUserAsync(Updateuser Updateuser);
     }
 }

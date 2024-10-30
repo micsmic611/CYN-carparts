@@ -10,6 +10,8 @@ using backend.src.Infrastructure.Interface;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using permissionAPI.src.Infrastructure.Repositories;
+using backend.DTOs;
 
 namespace backend.Helpers
 {
@@ -17,10 +19,14 @@ namespace backend.Helpers
     {
         private readonly byte[] secureKey;
         private readonly DataContext _dataContext;
+        private readonly IUserRepository _userRepository;
+        private readonly ILogger _logger;
 
-        public UserService(DataContext dataContext)
+        public UserService(DataContext dataContext, IUserRepository userRepository, ILogger<UserService> logger)
         {
-            _dataContext = dataContext;
+            _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
+            _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));  // ตรวจสอบว่า logger ไม่เป็น null
         }
 
 
@@ -71,18 +77,69 @@ namespace backend.Helpers
 
         public async Task<UserDbo> GetUserByUserID(int userID)
         {
-            return await _dataContext.User
+            var user = await _dataContext.User // ตรวจสอบว่าชื่อ DbSet ถูกต้อง
                 .Where(u => u.UserID == userID)
-                .Select(u => new UserDbo
-                {
-                    UserID = u.UserID,
-                    Username = u.Username,
-                    Firstname = u.Firstname,
-                    email = u.email,
-                    
-                })
                 .FirstOrDefaultAsync();
-        }
 
+            if (user == null)
+            {
+                throw new Exception($"User with ID {userID} not found."); // การจัดการกับผู้ใช้ที่ไม่พบ
+            }
+
+            return user;
+        }
+        public async Task<List<UserDbo>> Getalluserbyrole()
+        {
+            try
+            {
+                var userdata = await _userRepository.GetByroleId();
+                if (userdata == null || !userdata.Any())  // ตรวจสอบว่าค่าที่ได้ไม่เป็น null หรือไม่มีข้อมูล
+                {
+                    throw new KeyNotFoundException("ไม่พบผู้ใช้ที่มี Role ตามที่กำหนด");
+                }
+                return userdata;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"เกิดข้อผิดพลาดขณะดึงข้อมูลผู้ใช้: {ex.Message}", ex);
+            }
+        }
+        public async Task<Updateuser> UpdateUserAsync(Updateuser Updateuser)
+        {
+            try
+            {
+                _logger.LogInformation("Received request to update User with ID: {UserID} ", Updateuser.UserID);
+
+                var User = new UserDbo
+                {
+                    UserID = Updateuser.UserID,
+                    Firstname = Updateuser.Firstname,
+                    Lastname = Updateuser.Lastname,
+                    email = Updateuser.Email,
+                    Username = Updateuser.Username,
+                    phone = Updateuser.Phone,
+                };
+
+
+                var updatedUser = await _userRepository.UpdateUserAsync(User);
+
+                _logger.LogInformation("Successfully updated User with ID: {UserID}", Updateuser.UserID);
+
+                return new Updateuser
+                {
+                    UserID = Updateuser.UserID,
+                    Firstname = Updateuser.Firstname,
+                    Lastname = Updateuser.Lastname,
+                    Email = Updateuser.Email,
+                    Username = Updateuser.Username,
+                    Phone = Updateuser.Phone,
+                };
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error occurred while updating User with ID: {UserID}. Inner exception: {InnerException}", Updateuser.UserID, ex.InnerException?.Message);
+                throw new Exception("Error occurred while updating User", ex);
+            }
+        }
     }
 }

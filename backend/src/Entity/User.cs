@@ -12,10 +12,10 @@ namespace backend.src.Entities
         [Column("user_id", TypeName = "int")]
         public int UserID { get; set; }
 
-        [Column("username ", TypeName = "varchar(255)")]
+        [Column("username", TypeName = "varchar(255)")]
         public string? Username { get; set; }
 
-        [Column("password ", TypeName = "varchar(255)")]
+        [Column("password", TypeName = "varchar(255)")]
         public string? Password { get; set; }
 
         [Column("Firstname", TypeName = "varchar(255)")]

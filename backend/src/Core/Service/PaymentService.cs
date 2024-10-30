@@ -3,6 +3,7 @@ using backend.src.Infrastructure.Interface;
 using backend.src.Core.Interface;
 using Microsoft.EntityFrameworkCore;
 using backendAPI;
+using backend.DTOs;
 namespace backend.src.Core.Service
 {
     public class PaymentService : IPaymentService
@@ -15,7 +16,6 @@ namespace backend.src.Core.Service
             _paymentRepository = paymentRepository;
             _dataContext = dataContext;
         }
-
         public async Task<PaymentDbo> AddPaymentAsync(int userId, int[] cartIds, int locationId, int shippingId)
         {
             // คำนวณ total_price
@@ -31,22 +31,54 @@ namespace backend.src.Core.Service
                 CartPayments = new List<CartPaymentDbo>() // สร้าง collection สำหรับ CartPayments
             };
 
+            // บันทึกการชำระเงิน
             var createdPayment = await _paymentRepository.AddPaymentAsync(payment);
 
             // บันทึก CartPayment สำหรับแต่ละ cart_id
             foreach (var cartId in cartIds)
             {
-                payment.CartPayments.Add(new CartPaymentDbo
+                // ตรวจสอบว่ามี cart_id อยู่ในตาราง Cart หรือไม่
+                var cartItem = await _dataContext.Cart.FindAsync(cartId);
+                if (cartItem == null)
+                {
+                    throw new Exception($"Cart with ID {cartId} does not exist.");
+                }
+
+                // ตรวจสอบว่ามีผลิตภัณฑ์ที่เกี่ยวข้องกับ cart_id
+                // ใช้ Product_id จาก cartItem เพื่อเข้าถึง Product
+                var productId = cartItem.Product_id; // ตรวจสอบว่าเป็น nullable หรือไม่
+                if (!productId.HasValue) // ตรวจสอบว่ามีค่าหรือไม่
+                {
+                    throw new Exception($"Product with ID {cartItem.Product_id} does not exist.");
+                }
+
+                // ตรวจสอบการมีอยู่ของผลิตภัณฑ์
+                var productExists = await _dataContext.Products.AnyAsync(p => p.Productid == productId.Value);
+                if (!productExists)
+                {
+                    throw new Exception($"Product with ID {productId.Value} does not exist.");
+                }
+
+                // สร้าง CartPaymentDbo และเพิ่มเข้าไปใน Collection
+                var cartPayment = new CartPaymentDbo
                 {
                     BuyId = createdPayment.Buy_id,
-                    CartId = cartId
-                });
+                    CartId = cartId, // ควรเป็น ID ของตะกร้าสินค้า
+                    ProductId = productId.Value, // ใช้ค่าจริงจาก Product_id
+                    PaymentBuyId = createdPayment.Buy_id
+                };
+
+                payment.CartPayments.Add(cartPayment);
             }
 
-            await _paymentRepository.SaveCartPaymentsAsync(payment.CartPayments);
+            // บันทึก CartPayments ลงในฐานข้อมูล
+            await _dataContext.CartPayments.AddRangeAsync(payment.CartPayments);
+            await _dataContext.SaveChangesAsync();
 
-            return createdPayment;
+            return createdPayment; // ส่งคืนการชำระเงินที่สร้างขึ้น
         }
+
+
         public async Task<PaymentDbo?> GetPaymentByIdAsync(int id)
         {
             return await _paymentRepository.GetPaymentByIdAsync(id);
@@ -95,6 +127,9 @@ namespace backend.src.Core.Service
             // บันทึกการเปลี่ยนแปลงทั้งหมดในฐานข้อมูล
             await _dataContext.SaveChangesAsync();
         }
-
+        public async Task<List<PaymentHistoryDto>> GetPaymentHistoryAsync(int userId)
+        {
+            return await _paymentRepository.GetPaymentHistoryByUserIdAsync(userId);
+        }
     }
 }

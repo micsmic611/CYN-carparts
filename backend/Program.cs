@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using permissionAPI.src.Infrastructure.Repositories;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
+builder.Services.AddLogging();
 //User
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();

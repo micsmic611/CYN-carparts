@@ -25,6 +25,7 @@ namespace backendAPI
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
             base.OnModelCreating(modelBuilder);
             // Define configuration for number1Dbo if necessary
             //modelBuilder.Entity<number1Dbo>().ToTable("number1");

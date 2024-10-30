@@ -1,4 +1,5 @@
-﻿using backend.src.Entity;
+﻿using backend.DTOs;
+using backend.src.Entity;
 using backend.src.Infrastructure.Interface;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
@@ -61,5 +62,31 @@ namespace backend.src.Infrastructure.Repository
             _context.Send.Add(sendRecord);
             await _context.SaveChangesAsync();
         }
+        public async Task<List<PaymentHistoryDto>> GetPaymentHistoryByUserIdAsync(int userId)
+        {
+            var paymentHistory = await (from p in _context.Payments
+                                        join cp in _context.CartPayments on p.Buy_id equals cp.BuyId into cpGroup
+                                        from cp in cpGroup.DefaultIfEmpty()
+                                        join c in _context.Cart on cp.CartId equals c.Cart_id into cGroup
+                                        from c in cGroup.DefaultIfEmpty()
+                                        join pr in _context.Products on c.Product_id equals pr.Productid into prGroup
+                                        from pr in prGroup.DefaultIfEmpty()
+                                        join s in _context.Send on p.Buy_id equals s.Buy_id into sGroup
+                                        from s in sGroup.DefaultIfEmpty()
+                                        where p.User_id == userId && p.Status == "complete"
+                                        select new PaymentHistoryDto
+                                        {
+                                            BuyId = p.Buy_id,
+                                            ProductName = (pr != null) ? pr.Productname : "Unknown", // ตรวจสอบ null
+                                            Quantity = (c != null) ? c.Quantity : 0, // ตรวจสอบ null
+                                            TotalPrice = (c != null) ? c.Total_price : 0, // ตรวจสอบ null
+                                            PaymentStatus = p.Status,
+                                            PurchaseDate = p.Created_at,
+                                            send_status = s.Send_status
+                                        }).ToListAsync();
+            Console.WriteLine($"Payment History Count for userId {userId}: {paymentHistory.Count}");
+            return paymentHistory;
+        }
+        
     }
 }

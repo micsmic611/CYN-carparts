@@ -52,12 +52,54 @@ namespace backend.src.Infrastructure.Repository
                     }
                 ).ToListAsync();
         }
-        //อัพเดต โปรไฟล์
-        //public async Task<UserDbo> UpdateUserAsync(UserDbo user)
+        public async Task<ProductDbo> AddProductAsync(ProductDbo product)
+        {
+            await _dbContext.Set<ProductDbo>().AddAsync(product);
+            await _dbContext.SaveChangesAsync();
+            return product;
+        }
+        public async Task<ProductDbo> GetProductByIdAsync(int productId)
+        {
+            return await _dbContext.Products.FindAsync(productId);
+        }
 
-        //หน้ารายงาน
-        //public async Task<Orders>
+        public async Task UpdateProductAsync(ProductDbo product)
+        {
+            var existingProduct = await _dbContext.Products.FindAsync(product.Productid);
+            if (existingProduct != null)
+            {
+                existingProduct.Productname = product.Productname;
+                existingProduct.ProductDescription = product.ProductDescription;
+                existingProduct.Price = product.Price;
+                existingProduct.Stock = product.Stock;
+                existingProduct.Categoryid = product.Categoryid;
+                //existingProduct.Created_at = product.Created_at;
+                // ไม่อัปเดตรูปภาพ
+                // existingProduct.Product_img = product.Product_img; // คอมเมนต์บรรทัดนี้
 
+                _dbContext.Products.Update(existingProduct);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+
+        public async Task DeleteProductAsync(int productId)
+        {
+            var product = await _dbContext.Products.FindAsync(productId);
+            if (product != null)
+            {
+                _dbContext.Products.Remove(product);
+                await _dbContext.SaveChangesAsync();
+            }
+        }
+        public async Task<LocationDbo> GetAllLocationByUseridAsync(int User_id)
+        {
+            return await _dbContext.Location.FirstOrDefaultAsync(u => u.User_id == User_id);
+        }
+
+        public async Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id)
+        {
+            return await _dbContext.Shipping.FirstOrDefaultAsync(u => u.Shipping_id == Shipping_id);
+        }
 
     }
 }

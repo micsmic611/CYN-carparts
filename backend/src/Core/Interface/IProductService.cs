@@ -8,6 +8,12 @@ namespace backend.src.Core.Interface
         Task<List<ProductDbo>> GetProductByCategoriesIDAsync(int categoryId);
         Task<ProductDbo> GetAllProductByProductNameAsync(string ProductName);
         Task<List<ProductWithCategoryDto>> GetAllProductsWithCategory();
+        Task<ProductDtos> AddProductAsync(ProductDtos productDtos, string imagePath);
+        Task UpdateProductAsync(ProductDbo product);
+        Task<ProductDbo> GetProductAsync(int productId);
+        Task DeleteProductAsync(int productId);
+        Task<LocationDbo> GetAllLocationByUseridAsync(int User_id);
+        Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id);
     }
 
 }
