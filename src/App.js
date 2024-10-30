@@ -13,6 +13,8 @@ import ProductDetail from './page/productDetail'; // หน้ารายละ
 import { CartProvider } from './page/CartContext';
 import Cart from './page/cart';
 import EditProduct from './page/EditProduct';
+import AddProduct from './page/AddProduct';
+import MonthlyReport from './page/MonthlyReport';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
         <Route path="/navbar" element={<NavBar />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/EditProduct" element={<EditProduct />} />
+        <Route path="/AddProduct" element={<AddProduct />} />
+        <Route path="/MonthlyReport" element={<MonthlyReport />} />
       </Routes>
     </Router>
     </CartProvider>
