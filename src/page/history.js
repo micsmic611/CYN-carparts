@@ -27,6 +27,7 @@ const products = [
 
 function History() {
     return (
+      <div className="history-page">
         <div className="product-list-container">
           <header className="product-list-header">
             <h1>CYN Carpart</h1>
@@ -45,6 +46,7 @@ function History() {
             ))}
           </div>
         </div>
+      </div>
       );
 }
 

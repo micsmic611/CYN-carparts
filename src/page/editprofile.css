@@ -1,0 +1,74 @@
+.form-container {
+    font-family: Arial, sans-serif;
+    background-color: #4a5c82;
+    padding: 20px;
+    height: 100vh;
+  }
+  
+  .header {
+    background-color: #fdd1bd;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .profile-form {
+    background-color: #ffffff;
+    border-radius: px;
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .profile-form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .profile-form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  
+  .profile-form input,
+  .profile-form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  .dob-select {
+    display: flex;
+    gap: 5px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .button-group button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .button-group button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .button-group button[type="button"] {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
