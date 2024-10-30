@@ -10,7 +10,9 @@ function NavBar() {
       <Link to="/main" className="home">CYN Carpart</Link>
       </div>
       <div className="navbar-icons">
+      <Link to="/profile">
       <img src="/profile-user.png" alt="user" />
+      </Link>
       </div>
     </nav>
   );

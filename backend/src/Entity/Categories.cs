@@ -4,17 +4,15 @@ using System;
 namespace backend.src.Entity
 {
     [Table("Categories")]
-    public class Categories
+    public class CategorieDbo
     {
         [Key]
         [Required]
         [Column("category_id", TypeName = "int")]
-        public int Categoryid { get; set; }
+        public int CategoryId { get; set; }
         [Column("category_name ", TypeName = "varchar(100)")]
-        public string? categoryname { get; set; }
+        public string? Categoryname { get; set; }
         
-        [Column("description ", TypeName = "varchar(100)")]
-        public string? description { get; set; }
 
     }
 }

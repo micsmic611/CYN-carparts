@@ -119,9 +119,9 @@ function Main() {
                         <button className="search-button" onClick={handleSearch}>
                             <img src="/search.png" alt="searrch" />
                         </button>
-                        <button className="list-button">
+                        <Link to="/history" className="list-button">
                             <img src="/list.png" alt="list" />
-                        </button>
+                        </Link>
                         <Link to="/cart" className="cart-button"> {/* ปรับให้เป็น Link ไปยังหน้าตะกร้า */}
                             <img src="/shopping-cart.png" alt="cart" />
                         </Link>

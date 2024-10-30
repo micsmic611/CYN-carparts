@@ -1,0 +1,53 @@
+.manage-container {
+    background-color: #21222b;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .manage-card {
+    background-color: #f8e2d3;
+    width: 300px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+  }
+  
+  .manage-title {
+    margin: 0;
+    padding: 10px 0;
+  }
+  
+  .button-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  
+  .button {
+    padding: 20px;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .add-product {
+    background-color: #30e66f;
+  }
+  
+  .edit-product {
+    background-color: #f72876;
+  }
+  
+  .customer {
+    background-color: #665df2;
+  }
+  
+  .delete-product {
+    background-color: #f22c2c;
+  }
+  

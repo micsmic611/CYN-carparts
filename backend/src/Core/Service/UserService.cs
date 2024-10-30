@@ -4,6 +4,11 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using backend.src.Core.Interface;
+using backend.src.Core.Service;
+using backend.src.Entities;
+using backend.src.Infrastructure.Interface;
+using backendAPI;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace backend.Helpers
@@ -11,6 +16,13 @@ namespace backend.Helpers
     public class UserService : IUserService
     {
         private readonly byte[] secureKey;
+        private readonly DataContext _dataContext;
+
+        public UserService(DataContext dataContext)
+        {
+            _dataContext = dataContext;
+        }
+
 
         public UserService()
         {
@@ -56,5 +68,21 @@ namespace backend.Helpers
 
             return (JwtSecurityToken)validatedToken;
         }
+
+        public async Task<UserDbo> GetUserByUserID(int userID)
+        {
+            return await _dataContext.User
+                .Where(u => u.UserID == userID)
+                .Select(u => new UserDbo
+                {
+                    UserID = u.UserID,
+                    Username = u.Username,
+                    Firstname = u.Firstname,
+                    email = u.email,
+                    
+                })
+                .FirstOrDefaultAsync();
+        }
+
     }
 }

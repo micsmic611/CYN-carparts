@@ -2,6 +2,7 @@ import React, { useContext,useEffect, useState } from 'react';
 import { CartContext } from './CartContext';
 import NavBar from './navbar';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './cart.css'
 
 function Cart() {
@@ -154,12 +155,19 @@ function Cart() {
       ) : (
         <p>ไม่มีสินค้าในตะกร้า</p>
       )}
+
     </div>
     {/* สรุปยอดรวมและปุ่มสั่งซื้อ */}
         {cart.length > 0 && (
           <div className="cart-summary">
             <p>รวม ({cart.length} สินค้า): ฿{calculateTotal().toFixed(2)}</p>
+            <Link to={{
+            pathname: "/payment"
+          }}
+            state={{ cart: cart, total: calculateTotal() }} // เพิ่ม `state` ที่ถูกต้อง
+          >
             <button className="order-button">สั่งสินค้า</button>
+            </Link>
           </div>
         )}
                 </div>

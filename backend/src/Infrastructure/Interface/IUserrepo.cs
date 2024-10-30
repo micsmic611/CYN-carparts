@@ -13,6 +13,7 @@ namespace backend.src.Infrastructure.Interface
         Task<UserDbo> GetById(int UserID);
         Task<UserDbo> UpdateUserAsync(UserDbo user);
 
+        Task<UserDbo> GetUserByUserID(int userID);
 
 
     }
