@@ -11,6 +11,9 @@ const ProfileForm = () => {
     year: "2024",
   });
 
+  const [isEditing, setIsEditing] = useState(false); // สถานะสำหรับโหมดแก้ไข
+  const [originalData, setOriginalData] = useState(formData); // เก็บข้อมูลเดิมสำหรับใช้ในกรณียกเลิก
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
@@ -19,6 +22,18 @@ const ProfileForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Profile saved successfully!");
+    setOriginalData(formData); // เก็บข้อมูลปัจจุบันเป็นข้อมูลเดิม
+    setIsEditing(false); // ออกจากโหมดแก้ไข
+  };
+
+  const handleCancel = () => {
+    setFormData(originalData); // คืนค่าข้อมูลเดิมเมื่อยกเลิก
+    setIsEditing(false);
+  };
+
+  const handleEdit = () => {
+    setOriginalData(formData); // เก็บข้อมูลปัจจุบันก่อนเข้าสู่โหมดแก้ไข
+    setIsEditing(true);
   };
 
   return (
@@ -35,6 +50,7 @@ const ProfileForm = () => {
             name="username"
             value={formData.username}
             onChange={handleChange}
+            disabled={!isEditing} // ปิดใช้งานเมื่อไม่อยู่ในโหมดแก้ไข
           />
         </label>
         <label>
@@ -44,6 +60,7 @@ const ProfileForm = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            disabled={!isEditing} // ปิดใช้งานเมื่อไม่อยู่ในโหมดแก้ไข
           />
         </label>
         <label>
@@ -53,6 +70,7 @@ const ProfileForm = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            disabled={!isEditing} // ปิดใช้งานเมื่อไม่อยู่ในโหมดแก้ไข
           />
         </label>
         <label>
@@ -84,9 +102,9 @@ const ProfileForm = () => {
           </div>
         </label>
         <div className="button-group">
-          <button type="submit">ยืนยัน</button>
-          <button type="button">แก้ไข</button>
-          <button type="button">ยกเลิก</button>
+          <button type="submit" disabled={!isEditing}>ยืนยัน</button>
+          <button type="button" onClick={handleEdit}>แก้ไข</button>
+          <button type="button" onClick={handleCancel}>ยกเลิก</button>
         </div>
       </form>
     </div>
