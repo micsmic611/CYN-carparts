@@ -21,7 +21,7 @@ namespace backend.src.Infrastructure.Repository
         }
         public async Task<LocationDbo> GetLocationByUserId(int userId,int location_id)
         {
-            return await _context.Location.FirstOrDefaultAsync(loc => loc.User_id == userId&&loc.Location_id== location_id);
+            return await _context.Location.FirstOrDefaultAsync(loc => loc.User_id == userId && loc.Location_id == location_id);
         }
 
         public async Task UpdateLocationByUserId(int userId, string newAddress, int location_id)

@@ -22,6 +22,7 @@
         public DateTime? CreatedAt { get; set; }
         public int CategoryId { get; set; }
         public string? Categoryname { get; set; }
+        public string? ProductImgPath { get; set; } // เก็บ path ของรูปภาพ
     }
     public class ProductDtos
     {

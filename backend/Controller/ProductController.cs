@@ -68,13 +68,31 @@ namespace backend.Controller
             }
         }
 
-        [HttpGet("warehouserental")]
+        [HttpGet("ProductsWithCategory")]
         public async Task<IActionResult> GetAllProductsWithCategory()
         {
             try
             {
 
                 var productService = await _ProductService.GetAllProductsWithCategory();
+                return Ok(productService); // ส่งผลลัพธ์กลับในรูปแบบ JSON
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(new { message = ex.Message }); // ส่ง HTTP 404 ถ้าไม่พบข้อมูล
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message }); // ส่ง HTTP 500 เมื่อเกิดข้อผิดพลาดภายใน
+            }
+        }
+        [HttpGet("ProductsWithCategory1")]
+        public async Task<IActionResult> GetAllProductsWithCategory1(int productId)
+        {
+            try
+            {
+
+                var productService = await _ProductService.GetProductWithCategoryAsync1(productId);
                 return Ok(productService); // ส่งผลลัพธ์กลับในรูปแบบ JSON
             }
             catch (KeyNotFoundException ex)

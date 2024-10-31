@@ -48,7 +48,8 @@ namespace backend.src.Infrastructure.Repository
                                        ProductId = product.Productid,
                                        ProductName = product.Productname,
                                        Quantity = cart.Quantity,
-                                       TotalPrice = cart.Total_price
+                                       TotalPrice = cart.Total_price,
+                                       ProductImgPath= product.Product_img
                                    }).ToListAsync();
 
             return cartItems;

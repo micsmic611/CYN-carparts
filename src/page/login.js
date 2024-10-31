@@ -1,29 +1,43 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { jwtDecode } from 'jwt-decode';// อย่าลืมติดตั้ง jwt-decode ด้วย npm install jwt-decode
 import './login.css';
-
 
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);  // state สำหรับแสดง/ซ่อนรหัสผ่าน
+  const [showPassword, setShowPassword] = useState(false); 
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleTogglePassword = () => {
-    setShowPassword(!showPassword);  // สลับระหว่างแสดงและซ่อนรหัสผ่าน
+    setShowPassword(!showPassword);
   };
 
   const handleLogin = async (e) => {
     e.preventDefault();
     
     try {
-      const response = await fetch(`http://localhost:5000/users?username=${username}&password=${password}`);
+      const response = await fetch('https://localhost:7003/api/login', {
+        method: 'POST', // ใช้ POST ในการเข้าสู่ระบบ
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, password }), // ส่ง username และ password ในรูปแบบ JSON
+      });
+
       const data = await response.json();
 
-      if (data.length > 0) {
+      if (response.ok) {
+        // เก็บ token ใน local storage
+        localStorage.setItem('token', data.token);
+
+        // ถอดรหัส JWT
+        const decodedToken = jwtDecode(data.token);
+        console.log(decodedToken); // แสดงผลลัพธ์ของการถอดรหัส
+
         alert('Login Successful');
-        navigate('/');
+        navigate('/main');
       } else {
         setErrorMessage('Invalid username or password');
       }
@@ -31,7 +45,6 @@ function Login() {
       setErrorMessage('Error connecting to server');
     }
   };
-
   return (
     <div className="login-container">
       <div className="login-card">

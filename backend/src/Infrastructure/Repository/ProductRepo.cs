@@ -48,10 +48,35 @@ namespace backend.src.Infrastructure.Repository
                         Stock = product.Stock,
                         CreatedAt = product.Created_at,
                         CategoryId = category.CategoryId,
-                        Categoryname = category.Categoryname
+                        Categoryname = category.Categoryname,
+                        ProductImgPath = product.Product_img
                     }
                 ).ToListAsync();
         }
+        public async Task<ProductWithCategoryDto> GetProductsWithCategory1(int productId)
+        {
+            return await _dbContext.Products
+                    .Where(product => product.Productid == productId)
+                    .Join(
+                        _dbContext.Categories,
+                        product => product.Categoryid,
+                        category => category.CategoryId,
+                        (product, category) => new ProductWithCategoryDto
+                        {
+                            ProductId = product.Productid,
+                            ProductName = product.Productname,
+                            ProductDescription = product.ProductDescription,
+                            Price = product.Price,
+                            Stock = product.Stock,
+                            CreatedAt = product.Created_at,
+                            CategoryId = category.CategoryId,
+                            Categoryname = category.Categoryname,
+                            ProductImgPath = product.Product_img
+                        }
+                    )
+                    .FirstOrDefaultAsync(); // ใช้ FirstOrDefaultAsync เพื่อคืนค่ารายการเดียว
+        }
+
         public async Task<ProductDbo> AddProductAsync(ProductDbo product)
         {
             await _dbContext.Set<ProductDbo>().AddAsync(product);
@@ -91,9 +116,11 @@ namespace backend.src.Infrastructure.Repository
                 await _dbContext.SaveChangesAsync();
             }
         }
-        public async Task<LocationDbo> GetAllLocationByUseridAsync(int User_id)
+        public async Task<List<LocationDbo>> GetAllLocationByUseridAsync(int User_id)
         {
-            return await _dbContext.Location.FirstOrDefaultAsync(u => u.User_id == User_id);
+            return await _dbContext.Location
+                 .Where(u => u.User_id == User_id)
+                 .ToListAsync(); // ดึงข้อมูลหลายรายการเป็น List
         }
 
         public async Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id)

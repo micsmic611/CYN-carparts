@@ -13,5 +13,6 @@
         public string ProductName { get; set; } // ชื่อสินค้า
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
+        public string? ProductImgPath { get; set; }
     }
 }

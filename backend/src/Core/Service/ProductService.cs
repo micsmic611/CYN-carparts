@@ -91,6 +91,10 @@ namespace backend.src.Core.Service
                 throw new ApplicationException($"An error occurred while retrieving the product data: {ex.Message}", ex);
             }
         }
+        public async Task<ProductWithCategoryDto> GetProductWithCategoryAsync1(int productId)
+        {
+            return await _ProductRepository.GetProductsWithCategory1(productId);
+        }
         public async Task<ProductDtos> AddProductAsync(ProductDtos productDtos, string imagePath)
         {
             // สร้าง Dbo จาก Dto ที่ส่งเข้ามา
@@ -123,7 +127,7 @@ namespace backend.src.Core.Service
         {
             await _ProductRepository.DeleteProductAsync(productId);
         }
-        public async Task<LocationDbo> GetAllLocationByUseridAsync(int User_id)
+        public async Task<List<LocationDbo>> GetAllLocationByUseridAsync(int User_id)
         {
             return await _dataContext.Location
                 .Where(u => u.User_id == User_id)
@@ -134,7 +138,7 @@ namespace backend.src.Core.Service
                     Address = u.Address,
 
                 })
-                .FirstOrDefaultAsync();
+                .ToListAsync();
         }
 
         public async Task<ShippingDbo> GetAllShippingByshippingidAsync(int Shipping_id)

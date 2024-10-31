@@ -26,5 +26,17 @@ namespace backend.Controller
             await _locationService.UpdateLocationByUserId(userId, request.NewAddress,location_id);
             return Ok(new { Message = "Location updated successfully" });
         }
+        [HttpGet("{userId}/{locationId}")]
+        public async Task<IActionResult> GetLocation(int userId, int locationId)
+        {
+            var location = await _locationService.GetLocation(userId, locationId); // เรียกใช้ฟังก์ชันเพื่อดึงข้อมูล location
+
+            if (location != null)
+            {
+                return Ok(location); // ส่งคืนข้อมูล location ที่พบ
+            }
+
+            return NotFound("Location not found."); // ส่งคืน 404 หากไม่พบ location
+        }
     }
 }

@@ -9,6 +9,12 @@
     display: flex;
     gap: 20px;
   }
+  .product-detail img {
+    width: 200px; /* กำหนดความกว้างให้ fix */
+    height: 150px; /* กำหนดความสูงให้ fix */
+    object-fit: cover; /* เพื่อให้รูปภาพไม่ผิดสัดส่วน */
+    border-radius: 5px; /* เพิ่มมุมมนให้กับภาพ */
+}
   
   .product-info {
     display: flex;

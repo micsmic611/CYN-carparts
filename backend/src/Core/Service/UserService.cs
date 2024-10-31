@@ -17,21 +17,17 @@ namespace backend.Helpers
 {
     public class UserService : IUserService
     {
-        private readonly byte[] secureKey;
         private readonly DataContext _dataContext;
         private readonly IUserRepository _userRepository;
-        private readonly ILogger _logger;
+        private readonly ILogger<UserService> _logger;
+        private readonly byte[] secureKey;
 
         public UserService(DataContext dataContext, IUserRepository userRepository, ILogger<UserService> logger)
         {
             _dataContext = dataContext ?? throw new ArgumentNullException(nameof(dataContext));
             _userRepository = userRepository ?? throw new ArgumentNullException(nameof(userRepository));
-            _logger = logger ?? throw new ArgumentNullException(nameof(logger));  // ตรวจสอบว่า logger ไม่เป็น null
-        }
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
 
-
-        public UserService()
-        {
             secureKey = new byte[32]; // 32 bytes = 256 bits
             using (var rng = RandomNumberGenerator.Create())
             {

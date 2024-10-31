@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import './editprofile.css';
-
+import NavBar from "./navbar";
 const ProfileForm = () => {
   const [formData, setFormData] = useState({
     username: "dotcomx",
@@ -37,10 +37,10 @@ const ProfileForm = () => {
   };
 
   return (
+    <div>
+    <NavBar/>
     <div className="form-container">
-      <header className="header">
-        <h1>CYN Carport</h1>
-      </header>
+      
       <form className="profile-form" onSubmit={handleSubmit}>
         <h2>Profile</h2>
         <label>
@@ -107,6 +107,7 @@ const ProfileForm = () => {
           <button type="button" onClick={handleCancel}>ยกเลิก</button>
         </div>
       </form>
+    </div>
     </div>
   );
 };
