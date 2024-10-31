@@ -12,5 +12,6 @@ namespace backend.src.Infrastructure.Interface
         Task<PaymentDbo> UpdatePaymentStatusAsync(int buyId);
         Task AddSendRecordAsync(int buyId, int userId);
         Task<List<PaymentHistoryDto>> GetPaymentHistoryByUserIdAsync(int userId);
+        Task<List<PaymentHistoryDto>> GetAllPaymentHistoryAsync();
     }
 }

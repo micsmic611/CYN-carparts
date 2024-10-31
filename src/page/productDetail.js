@@ -15,7 +15,13 @@ function ProductDetail() {
     const [quantity, setQuantity] = useState(1);
     const [product, setProduct] = useState(null);
     const { id } = useParams();
-
+    // ข้อมูล mock สำหรับรีวิว
+    const reviews = [
+        { id: 1, user: "cim", comment: "สินค้าคุณภาพดีมาก!", rating: 5 },
+        { id: 2, user: "yok", comment: "คุ้มค่ากับราคา", rating: 4 },
+        { id: 3, user: "guy", comment: "ส่งเร็วมาก แต่สินค้าขาดบางอย่าง", rating: 3 },
+        { id: 4, user: "nan", comment: "ส่งเร็วมาก แต่สินค้าขาดบางอย่าง", rating: 4 }
+    ];
     useEffect(() => {
         // เรียกใช้ API เพื่อดึงข้อมูลสินค้าตาม id https://localhost:7003/api/Product/ProductsWithCategory1?productId=${id}
         fetch(`https://localhost:7003/api/Product/ProductsWithCategory1?productId=${id}`)
@@ -146,13 +152,21 @@ function ProductDetail() {
                                 <div className="product-description">
                                     <p>รายละเอียดสินค้า: {product.productDescription}</p>
                                 </div>
-                                <div className="product-review">
-                                    <p>รีวิวสินค้า</p>
-                                    <textarea placeholder="แสดงความคิดเห็น..."></textarea>
-                                </div>
                             </div>
                         </div>
                     </div>
+                                                    {/* กล่องรีวิว */}
+                                                    <div className="product-review">
+                                    <h3>รีวิวสินค้า</h3>
+                                    {reviews.map(review => (
+                                        <div key={review.id} className="review-item">
+                                            <strong>{review.user}</strong>
+                                            <p>{review.comment}</p>
+                                            <p>⭐ {review.rating} / 5</p>
+                                        </div>
+                                    ))}
+                                    
+                                </div>
                 </div>
             </div>
 
@@ -167,6 +181,7 @@ function ProductDetail() {
                     </div>
                 </div>
             )}
+            
         </div>
     );
 }

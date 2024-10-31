@@ -131,5 +131,30 @@ namespace backend.src.Core.Service
         {
             return await _paymentRepository.GetPaymentHistoryByUserIdAsync(userId);
         }
+        public async Task<List<PaymentHistoryDto>> GetAllPaymentHistoryAsync()
+        {
+            var paymentHistory = await (from p in _dataContext.Payments
+                                        join cp in _dataContext.CartPayments on p.Buy_id equals cp.BuyId into cpGroup
+                                        from cp in cpGroup.DefaultIfEmpty()
+                                        join c in _dataContext.Cart on cp.CartId equals c.Cart_id into cGroup
+                                        from c in cGroup.DefaultIfEmpty()
+                                        join pr in _dataContext.Products on c.Product_id equals pr.Productid into prGroup
+                                        from pr in prGroup.DefaultIfEmpty()
+                                        join s in _dataContext.Send on p.Buy_id equals s.Buy_id into sGroup
+                                        from s in sGroup.DefaultIfEmpty()
+                                        where p.Status == "complete"
+                                        select new PaymentHistoryDto
+                                        {
+                                            BuyId = p.Buy_id,
+                                            ProductName = (pr != null) ? pr.Productname : "Unknown",
+                                            Quantity = (c != null) ? c.Quantity : 0,
+                                            TotalPrice = (c != null) ? c.Total_price : 0,
+                                            PaymentStatus = p.Status,
+                                            PurchaseDate = p.Created_at,
+                                            send_status = s.Send_status
+                                        }).ToListAsync();
+
+            return paymentHistory;
+        }
     }
 }

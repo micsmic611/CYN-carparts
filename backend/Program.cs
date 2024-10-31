@@ -3,6 +3,8 @@ using backend.src.Core.Interface;
 using backend.src.Core.Service;
 using backend.src.Infrastructure.Interface;
 using backend.src.Infrastructure.Repository;
+using backend.src.Repository;
+using backend.src.Service;
 using backendAPI;
 using Microsoft.EntityFrameworkCore;
 using permissionAPI.src.Infrastructure.Repositories;
@@ -24,6 +26,9 @@ builder.Services.AddScoped<ILocationService, LocationService>();
 //
 builder.Services.AddScoped<IPaymentService, PaymentService>();
 builder.Services.AddScoped<IPaymentRepository, PaymentRepository>();
+//
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

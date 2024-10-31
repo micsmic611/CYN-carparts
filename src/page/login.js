@@ -35,15 +35,25 @@ function Login() {
         // ถอดรหัส JWT
         const decodedToken = jwtDecode(data.token);
         console.log(decodedToken); // แสดงผลลัพธ์ของการถอดรหัส
-
-        alert('Login Successful');
-        navigate('/main');
+        if (decodedToken.roleId === "1") { // เปลี่ยนจาก roleid เป็น roleId
+          navigate('/main');
+      } else if (decodedToken.roleId === "2") {
+          navigate('/manager');
+      } else {
+          setErrorMessage('Unauthorized access');
+      }
       } else {
         setErrorMessage('Invalid username or password');
       }
     } catch (error) {
       setErrorMessage('Error connecting to server');
     }
+  };
+  const handlemanage = () => {
+    navigate('/ResetPassword'); // Navigate to register page when sign up is clicked
+  };
+  const handleSignUp = () => {
+    navigate('/register'); // Navigate to register page when sign up is clicked
   };
   return (
     <div className="login-container">
@@ -77,12 +87,12 @@ function Login() {
           </div>
           {errorMessage && <p className="error">{errorMessage}</p>}
           <p className="forgot-password">
-            forgot your <a href="#">password</a>?
+            forgot your <a href="#" onClick={handlemanage}>password</a>?
           </p>
           <button type="submit" className="login-btn">Login</button>
         </form>
         <p className="signup-text">
-          Don’t have an account? <a href="#">sign up</a>
+          Don’t have an account? <a href="#" onClick={handleSignUp}>sign up</a>
         </p>
       </div>
     </div>

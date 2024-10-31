@@ -1,27 +1,39 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #fdd1bd;
-    border-bottom: 2px solid #000;
-  }
-  
-  .navbar-logo .home {
-    background-color: #fdd1bd;
-    border: none;
-    font-size: 24px;
-    font-family: 'Arial Black', sans-serif;
-    color: #000;
-    text-decoration: none; /* ลบเส้นใต้ */
-    cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #fdd1bd;
+  border-bottom: 2px solid #000;
 }
-  
-  .navbar-icons img{
-    width: 50px;
-  }
-  
-  .fa-user-circle {
-    cursor: pointer;
-  }
-  
+
+.navbar-logo .home {
+  background-color: #fdd1bd;
+  border: none;
+  font-size: 24px;
+  font-family: 'Arial Black', sans-serif;
+  color: #000;
+  text-decoration: none; /* ลบเส้นใต้ */
+  cursor: pointer;
+}
+
+.navbar-icons img {
+  width: 50px;
+}
+
+.logout-btn {
+  margin-left: 10px; /* เพิ่มระยะห่างระหว่างปุ่ม Logout กับไอคอนโปรไฟล์ */
+  background-color: transparent; /* ไม่มีพื้นหลัง */
+  border: none; /* ไม่มีขอบ */
+  cursor: pointer; /* แสดงเคอร์เซอร์เมื่อวางเมาส์ */
+  font-size: 50px; /* ขนาดไอคอน */
+  color: #000; /* สีไอคอน */
+}
+
+.logout-btn:hover {
+  color: #f44336; /* เปลี่ยนสีเมื่อวางเมาส์บนปุ่ม Logout */
+}
+
+.fa-user-circle {
+  cursor: pointer;
+}

@@ -18,13 +18,15 @@
   }
   
   .card {
+    display: flex; /* ใช้ Flexbox เพื่อจัดเรียงองค์ประกอบ */
+    align-items: center; /* จัดแนวกลางแนวตั้ง */
+    margin: 10px; /* ระยะห่างระหว่างการ์ด */
+    padding: 10px; /* ระยะห่างภายในการ์ด */
+    border: 1px solid #ccc; /* เส้นขอบของการ์ด */
+    border-radius: px; /* มุมโค้งของการ์ด */
     background-color: #ffffff;
-    border-radius: 8px;
-    padding: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
-  
+
   .username {
     font-size: 18px;
     font-weight: bold;
@@ -35,7 +37,23 @@
   }
   
   .email {
-    color: #1e90ff;
+    color: #000000;
     text-decoration: none;
   }
-  
+  .card img{
+    width: 50px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column; /* จัดเรียงข้อมูลเป็นแนวตั้ง */
+}
+.card-content {
+  display: flex; /* ใช้ Flexbox สำหรับการจัดเรียงภาพและข้อมูล */
+  align-items: center; /* จัดแนวกลางแนวตั้ง */
+}
+.profile-image {
+  width: 50px; /* ขนาดของภาพ */
+  height: 50px; /* ขนาดของภาพ */
+  margin-right: 10px; /* ระยะห่างระหว่างภาพและข้อมูล */
+  border-radius: 50%; /* ทำให้ภาพเป็นวงกลม */
+}

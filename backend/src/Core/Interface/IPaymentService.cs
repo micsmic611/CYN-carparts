@@ -10,5 +10,6 @@ namespace backend.src.Core.Interface
 
         Task UpdatePaymentAndSendAsync(int buyId, int userId);
         Task<List<PaymentHistoryDto>> GetPaymentHistoryAsync(int userId);
+        Task<List<PaymentHistoryDto>> GetAllPaymentHistoryAsync();
     }
 }

@@ -90,5 +90,11 @@ namespace backend.Controller
             }
             return Ok(history);
         }
+        [HttpGet("history")]
+        public async Task<IActionResult> GetAllPaymentHistory()
+        {
+            var paymentHistory = await _paymentService.GetAllPaymentHistoryAsync();
+            return Ok(paymentHistory);
+        }
     }
 }

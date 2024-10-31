@@ -16,6 +16,8 @@ import EditProduct from './page/EditProduct';
 import AddProduct from './page/AddProduct';
 import MonthlyReport from './page/MonthlyReport';
 import ProductListing from './page/ProductListing';
+import Register from './page/Register';
+import ResetPassword from './page/ResetPassword'; 
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
         <Route path="/AddProduct" element={<AddProduct />} />
         <Route path="/MonthlyReport" element={<MonthlyReport />} />
         <Route path="/ProductListing" element={<ProductListing />} />
+        <Route path="/register" element={<Register/>}/>
+        <Route path="/ResetPassword" element={<ResetPassword/>}/>
       </Routes>
     </Router>
     </CartProvider>
