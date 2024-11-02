@@ -150,6 +150,7 @@ namespace backend.src.Core.Service
                                             Quantity = (c != null) ? c.Quantity : 0,
                                             TotalPrice = (c != null) ? c.Total_price : 0,
                                             PaymentStatus = p.Status,
+                                            Product_img=pr.Product_img,
                                             PurchaseDate = p.Created_at,
                                             send_status = s.Send_status
                                         }).ToListAsync();

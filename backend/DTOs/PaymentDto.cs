@@ -18,9 +18,11 @@
         public string ProductName { get; set; }
         public int Quantity { get; set; }
         public decimal TotalPrice { get; set; }
+        public string? Product_img { get; set; }
         public string PaymentStatus { get; set; }
         public DateTime? PurchaseDate { get; set; }
         public string send_status { get; set; }
+        
     }
     public class PaymentDto
     {
