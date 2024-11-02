@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import success from '../img/success-icon.png';
 import './success.css';
 
 function Success(){
@@ -12,7 +13,7 @@ function Success(){
         <div className="thank-you-container">
             <div className="thank-you-card">
                 <div className="check-icon">
-                    <img src="/check-icon.png" alt="Success" /> {/* แสดงไอคอนติ๊กถูก */}
+                    <img src={success}  alt="Success" /> {/* แสดงไอคอนติ๊กถูก */}
                 </div>
                 <p>Thank you for order</p>
                 <button className="home-button" onClick={handleHomeClick}>Home</button>

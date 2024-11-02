@@ -7,8 +7,10 @@
 }
 
 .thank-you-card {
+    height: 350px;
+    width: 350px;
     background-color: #fff;
-    padding: 30px;
+    padding: 100px;
     border-radius: 10px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -27,6 +29,7 @@
 }
 
 .home-button {
+    margin-top: 150px;
     background-color: #4d79ff;
     color: #fff;
     padding: 10px 20px;

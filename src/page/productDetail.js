@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import './productDetail.css';
 import NavBar from './navbar';
 import { CartContext } from './CartContext';
+import { jwtDecode } from 'jwt-decode';
 
 const getImagePath = (filename) => {
     return require(`../img/${filename}`); // ตรวจสอบให้แน่ใจว่าใช้ path ที่ถูกต้อง
@@ -47,16 +48,24 @@ function ProductDetail() {
     };
 
     const confirmBuy = () => {
-        const userId = localStorage.getItem('userId'); // ดึง userId จาก localStorage
         const productId = product.productId; // ดึง productId จากสินค้า
         const quantityToSend = quantity; // จำนวนสินค้า
-
+        const token = localStorage.getItem('token');
+        let userId = null;
+        if (token) {
+            try {
+                const decodedToken = jwtDecode(token);
+                userId = decodedToken.userId;
+            } catch (error) {
+                console.error('Error decoding token:', error);
+            }
+        }
         const payload = {
-            userId: parseInt(userId), // แปลงให้เป็นตัวเลข
+            userId: userId, // กำหนด userId เป็น 5
             productId: productId,
             quantity: quantityToSend
         };
-
+    
         // ส่งข้อมูลไปยัง API
         fetch('https://localhost:7003/api/Cart/add', {
             method: 'POST',

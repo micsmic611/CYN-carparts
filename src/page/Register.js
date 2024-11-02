@@ -69,7 +69,7 @@ function Register() {
                     address: ''
                 });
                 // เปลี่ยนหน้าไปยังหน้า Login
-                navigate('/login');
+                navigate('/');
             } else {
                 setError('การลงทะเบียนล้มเหลว');
             }
@@ -87,7 +87,7 @@ function Register() {
         <div class="register-body-container">
         <div className="register-container">
             <div className="register-header">
-                <img src="car-logo.png" alt="CYN Carparts Logo" className="logo" />
+                <img src="/CAP_CAR.png" alt="CYN Carparts Logo" className="logo" />
                 <h2>CYN Carparts</h2>
             </div>
             <form onSubmit={handleSubmit}>

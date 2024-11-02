@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios'; // ติดตั้ง axios ถ้ายังไม่ได้ติดตั้ง
 import NavBar from './navbar';
+import qrImage from '../img/qr_concert.png';
+
 import './payment.css';
 
 const Payment = () => {
@@ -52,7 +54,7 @@ const Payment = () => {
         <div>
             <NavBar />
             <div className="payment-container">
-                <img src="https://via.placeholder.com/150" alt="QR Code" className="qr-code" />
+            <img src={qrImage} alt="QR Code" className="qr-code" />
                 <h2>หน้าชำระเงิน</h2>
                 <p className="order-number">เลขที่ใบสั่งซื้อ: {buyIdFromStorage}</p>
                 <p>รวมยอดชำระ: ฿{total.toFixed(2)}</p>

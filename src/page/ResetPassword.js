@@ -31,7 +31,7 @@ function ResetPassword() {
 
       if (response.ok) {
         alert('Password reset successfully');
-        navigate('/login');
+        navigate('/');
       } else {
         setErrorMessage('Failed to reset password');
       }

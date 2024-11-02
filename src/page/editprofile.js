@@ -70,7 +70,7 @@ const ProfileForm = () => {
     const userId = decodedToken.userId; // ใช้ userId ที่ถอดรหัส
 
     const updatedData = {
-      userID: userId, // ส่ง userID ที่ถอดรหัส
+      userId: userId, // ใช้ userId แทน userID
       username: formData.username,
       firstname: formData.firstname,
       lastname: formData.lastname,

@@ -32,7 +32,7 @@ function NavBar() {
 
   const handleLogout = () => {
     localStorage.removeItem("token"); // ลบ token ออกจาก local storage
-    navigate("/login"); // นำทางไปที่หน้า login
+    navigate("/"); // นำทางไปที่หน้า login
   };
 
   return (

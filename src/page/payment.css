@@ -6,7 +6,6 @@
 
 .payment-container {
   width: 800px;
-  height: 1200px;
   margin: auto;
   background-color: #f4f4f4;
   padding: 20px;
@@ -28,8 +27,8 @@
 }
 
 .qr-code {
-  width: 150px;
-  height: 150px;
+  width: auto;
+  height: 500px;
   margin-bottom: 20px;
 }
 

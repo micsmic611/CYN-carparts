@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './MonthlyReport.css';
 import NavBar from './navbar';
+const getImagePath = (filename) => {
+    return require(`../img/${filename}`); // ตรวจสอบให้แน่ใจว่าใช้ path ที่ถูกต้อง
+};
 
 function MonthlyReport() {
     const [reportData, setReportData] = useState([]);
@@ -15,7 +18,12 @@ function MonthlyReport() {
                 const response = await fetch(`https://localhost:7003/api/Payment/history?month=${selectedMonth}`);
                 const data = await response.json();
                 setReportData(data);
-
+                const filteredData = data.filter(item => {
+                    const itemMonth = new Date(item.purchaseDate).getMonth() + 1;
+                    return itemMonth === selectedMonth;
+                });
+                console.log('Filtered Data:', filteredData); // ตรวจสอบข้อมูลหลังการกรอง
+                setReportData(filteredData);
                 // คำนวณราคารวม
                 const total = data.reduce((acc, item) => acc + item.totalPrice, 0);
                 setTotalPrice(total);
@@ -39,8 +47,10 @@ function MonthlyReport() {
     };
 
     const handleMonthChange = (e) => {
-        setSelectedMonth(Number(e.target.value));
-        setCurrentPage(1); // รีเซ็ตไปที่หน้าแรกเมื่อเปลี่ยนเดือน
+        const month = Number(e.target.value);
+        console.log('Selected month:', month); // เช็คค่าของเดือนที่เลือก
+        setSelectedMonth(month);
+        setCurrentPage(1);
     };
 
     return (
@@ -71,7 +81,14 @@ function MonthlyReport() {
                         <div className="report-list">
                             {currentItems.map((item) => (
                                 <div className="report-item" key={item.buyId}>
-                                    <img src="/profile-user.png" alt={item.productName} />
+                                    <img
+                                        src={item.product_img ? getImagePath(item.product_img.split('\\').pop()) : "/profile-user.png"}
+                                        alt={item.productName}
+                                        onError={(e) => {
+                                            e.target.onerror = null; // ป้องกันการเรียกใช้ onError ซ้ำ
+                                            e.target.src = "/profile-user.png"; // เปลี่ยนเป็นรูปสำรอง
+                                        }}
+                                    />
                                     <div className="item-details">
                                         <h3>{item.productName}</h3>
                                         <p>จำนวน: {item.quantity}</p>

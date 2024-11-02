@@ -236,3 +236,8 @@
     border-color: #fa6609; /* สีเมื่อเลือก */
     background-color: #e7f0ff; /* สีพื้นหลังเมื่อเลือก */
 }
+h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #fdfdfd;
+}

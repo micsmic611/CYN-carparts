@@ -34,10 +34,10 @@ function Main() {
         const matchesSearchTerm = productName.toLowerCase().includes(searchTerm.toLowerCase());
 
         const matchesCategory =
-            selectedCategories.length === 0 ||
-            selectedCategories.some(category => 
-                product.productDescription?.includes(category) 
-            );
+        selectedCategories.length === 0 ||
+        selectedCategories.some(category => 
+            product.categoryname === category // ตรวจสอบให้แน่ใจว่าชื่อประเภทตรงกัน
+        );
 
         return matchesSearchTerm && matchesCategory;
     });
@@ -78,27 +78,36 @@ function Main() {
                     <div className="category">
                         <input
                             type="checkbox"
-                            id="frontBumper"
-                            onChange={() => handleCategoryChange('กันชนหน้า')}
+                            id="front-bumper"
+                            onChange={() => handleCategoryChange('front bumper')} // ปรับชื่อให้ตรงกับข้อมูลผลิตภัณฑ์
                         />
-                        <label htmlFor="frontBumper">กันชนหน้า</label>
+                        <label htmlFor="front-bumper">กันชนหน้า</label>
                     </div>
                     <div className="category">
                         <input
                             type="checkbox"
-                            id="backBumper"
-                            onChange={() => handleCategoryChange('กันชนหลัง')}
+                            id="rear bumper"
+                            onChange={() => handleCategoryChange('rear bumper')}
                         />
-                        <label htmlFor="backBumper">กันชนหลัง</label>
+                        <label htmlFor="rear bumper">กันชนหลัง</label>
                     </div>
                     <div className="category">
                         <input
                             type="checkbox"
-                            id="backLight"
-                            onChange={() => handleCategoryChange('ไฟหน้าหลัง')}
+                            id="side steps"
+                            onChange={() => handleCategoryChange('side steps')}
                         />
-                        <label htmlFor="backLight">ไฟหน้าหลัง</label>
+                        <label htmlFor="side steps">บันไดข้าง</label>
                     </div>
+                    <div className="category">
+                        <input
+                            type="checkbox"
+                            id="Alloy wheels"
+                            onChange={() => handleCategoryChange('Alloy wheels')}
+                        />
+                        <label htmlFor="Alloy wheels">ล้อแม็กซ์</label>
+                    </div>
+                    
                 </aside>
 
                 <div className="main-content">
